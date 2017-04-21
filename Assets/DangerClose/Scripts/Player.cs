@@ -3,15 +3,36 @@ using System.Collections;
 using UnityEngine.Networking;
 using UnityEngine.UI;
 
+public enum PlayerTypeEnum
+{
+	Headquarters,
+	Commando
+}
+
 public class Player : CaptainsMessPlayer {
+
+	[SyncVar]
+	private bool _hasStarted;
 
 	public Image PlayerImage;
 	public Text NameField;
 	public Text ReadyField;
 
+	private int _prevtouchCount;
+
+	private int _headquartersClickPos;
+	private float _headquartersClickTime;
+
+	private PlayerTypeEnum _playerType;
+
 	public override void OnStartLocalPlayer()
 	{
 		base.OnStartLocalPlayer();
+
+		if (playerIndex == 0)
+			_playerType = PlayerTypeEnum.Commando;
+		else
+			_playerType = PlayerTypeEnum.Headquarters;
 	}
 
 	public override void OnClientEnterLobby()
@@ -48,13 +69,56 @@ public class Player : CaptainsMessPlayer {
 
 	public void Update()
 	{
+		//if (_playerType == PlayerTypeEnum.Headquarters && _hasStarted)
+		//{
+		//	Ray ray = new Ray();
 
+		//	if (Input.GetMouseButtonDown(0))
+		//	{
+		//		ray = Camera.main.ScreenPointToRay(Input.mousePosition);
+
+		//		CastRay(ray);
+		//	}
+		//	else if (Input.touchCount == 1 && _prevtouchCount == 0)
+		//	{
+		//		_prevtouchCount = Input.touchCount;
+
+		//		Vector3 screenTouchPos = Input.GetTouch(0).position;
+		//		ray = Camera.main.ScreenPointToRay(screenTouchPos);
+
+		//		CastRay(ray);
+		//	}
+		//	//UpdateMover();
+		//}
+
+		//if (_hasStarted)
+		//	NameField.gameObject.SetActive(false);
+		
+		//CmdGetMoverPosition(pos);
+	}
+
+
+	void CastRay(Ray ray)
+	{
+		RaycastHit hit;
+
+		if (Physics.Raycast(ray, out hit))
+		{
+			_headquartersClickTime = Time.time;
+			//_headquartersClickPos = AsymmetricGameSession.instance.moverTran.position;
+		}
 	}
 
 	[ClientRpc]
 	public void RpcOnStartedGame()
 	{
 		ReadyField.gameObject.SetActive(false);
+		Invoke("SetupGame", 0.5f);
+	}
+
+	private void SetupGame()
+	{
+		_hasStarted = true;
 	}
 
 	void OnGUI()

@@ -55,6 +55,7 @@ public class GameSession : NetworkBehaviour {
 	[Server]
 	IEnumerator RunGame()
 	{
+		gameState = GameStateEnum.Playing;
 		yield return null;
 	}
 
