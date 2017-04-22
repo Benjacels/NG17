@@ -35,9 +35,14 @@ public class Player : CaptainsMessPlayer {
 
 	private GameObject _buttonEventParent;
 
-	private int _bombAmmo = 5;
+	private int _startBombAmmo = 5;
+
+	private int _bombAmmo;
+	private Text _ammoNum;
 
 	private PlayerTypeEnum _playerType;
+
+	private GameObject _bombAmmoParent;
 
 	private ButtonEventReceiver _buttonEventReceiver;
 
@@ -158,8 +163,17 @@ public class Player : CaptainsMessPlayer {
 		NetworkServer.Spawn(_bomb);
 
 		_bombAmmo--;
+		_ammoNum.text = _bombAmmo.ToString();
 	}
 
+	[Command]
+	public void CmdResetAmmo(int startAmmo)
+	{
+		_bombAmmo = startAmmo;
+
+		if(_ammoNum != null)
+			_ammoNum.text = _bombAmmo.ToString();
+	}
 
 
 	[ClientRpc]
@@ -193,6 +207,8 @@ public class Player : CaptainsMessPlayer {
 		}
 		else if (_playerType == PlayerTypeEnum.Headquarters && isLocalPlayer)
 		{
+			_bombAmmo = _startBombAmmo;
+
 			TankScript[] tankScripts = GameObject.FindObjectsOfType(typeof(TankScript)) as TankScript[];
 			foreach (TankScript tankScript in tankScripts)
 				tankScript.gameObject.SetActive(false);
@@ -202,6 +218,16 @@ public class Player : CaptainsMessPlayer {
 
 			GameObject.FindWithTag("IntelObject").transform.GetChild(0).gameObject.SetActive(true);
 			GameObject.FindWithTag("LZObject").transform.GetChild(0).gameObject.SetActive(true);
+
+			_bombAmmoParent = GameObject.FindWithTag("AmmoParent");
+
+			foreach (Transform tran in _bombAmmoParent.transform)
+			{
+				tran.gameObject.SetActive(true);
+
+				if (tran.GetComponent<Text>() != null)
+					_ammoNum = tran.GetComponent<Text>();
+			}
 		}
 	}
 
