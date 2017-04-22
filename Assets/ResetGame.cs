@@ -9,5 +9,7 @@ public class ResetGame : MonoBehaviour {
 
 		foreach (DestroyableObject destroyObject in destroyableObjects)
 			destroyObject.ReviveObject();
+
+		FindObjectOfType<Commando>().HasTriggerObject = false;
 	}
 }

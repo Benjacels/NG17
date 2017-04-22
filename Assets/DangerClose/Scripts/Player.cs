@@ -192,7 +192,16 @@ public class Player : CaptainsMessPlayer {
 
 			if(_buttonEventParent != null)
 				_buttonEventParent.gameObject.SetActive(false);
+
+			GameObject.FindWithTag("IntelObject").transform.GetChild(0).gameObject.SetActive(true);
+			GameObject.FindWithTag("LZObject").transform.GetChild(0).gameObject.SetActive(true);
 		}
+	}
+
+	[Command]
+	public void CmdEndGame()
+	{
+		FindObjectOfType<EndGameScript>().EndGame();
 	}
 
 	private void MoveCommando()

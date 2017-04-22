@@ -6,6 +6,8 @@ public class Commando : DestroyableObject {
     // gem originale transform værdier, så vi kan ændre orientering, uden at fucke inspector værdier op
     private Transform _origPos;
 
+	public bool HasTriggerObject;
+
 	protected override void Start()
 	{
 		base.Start();
@@ -60,4 +62,13 @@ public class Commando : DestroyableObject {
         transform.localScale = _origPos.localScale;
         transform.rotation.SetEulerAngles(0, 0, 90);
     }
+
+	void OnTriggerEnter(Collider other)
+	{
+		if (other.gameObject.CompareTag("IntelObject"))
+			HasTriggerObject = true;
+
+		if (other.gameObject.CompareTag("LZObject") && HasTriggerObject)
+			FindObjectOfType<Player>().CmdEndGame();
+	}
 }
