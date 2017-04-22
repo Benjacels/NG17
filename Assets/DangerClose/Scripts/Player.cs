@@ -18,6 +18,9 @@ public class Player : CaptainsMessPlayer {
 	public Text NameField;
 	public Text ReadyField;
 
+	public GameObject BombPrefab;
+	private GameObject _bomb;
+
 	private int _prevtouchCount;
 
 	private int _headquartersClickPos;
@@ -33,6 +36,15 @@ public class Player : CaptainsMessPlayer {
 			_playerType = PlayerTypeEnum.Commando;
 		else
 			_playerType = PlayerTypeEnum.Headquarters;
+	}
+
+	[Client]
+	public override void OnStartClient()
+	{
+		base.OnStartClient();
+
+		if(playerIndex == 0)
+			ClientScene.RegisterPrefab(BombPrefab);
 	}
 
 	public override void OnClientEnterLobby()
@@ -69,30 +81,30 @@ public class Player : CaptainsMessPlayer {
 
 	public void Update()
 	{
-		//if (_playerType == PlayerTypeEnum.Headquarters && _hasStarted)
-		//{
-		//	Ray ray = new Ray();
+		if (_playerType == PlayerTypeEnum.Headquarters && _hasStarted)
+		{
+			Ray ray = new Ray();
 
-		//	if (Input.GetMouseButtonDown(0))
-		//	{
-		//		ray = Camera.main.ScreenPointToRay(Input.mousePosition);
+			if (Input.GetMouseButtonDown(0))
+			{
+				ray = Camera.main.ScreenPointToRay(Input.mousePosition);
 
-		//		CastRay(ray);
-		//	}
-		//	else if (Input.touchCount == 1 && _prevtouchCount == 0)
-		//	{
-		//		_prevtouchCount = Input.touchCount;
+				CastRay(ray);
+			}
+			else if (Input.touchCount == 1 && _prevtouchCount == 0)
+			{
+				_prevtouchCount = Input.touchCount;
 
-		//		Vector3 screenTouchPos = Input.GetTouch(0).position;
-		//		ray = Camera.main.ScreenPointToRay(screenTouchPos);
+				Vector3 screenTouchPos = Input.GetTouch(0).position;
+				ray = Camera.main.ScreenPointToRay(screenTouchPos);
 
-		//		CastRay(ray);
-		//	}
-		//	//UpdateMover();
-		//}
+				CastRay(ray);
+			}
+			//UpdateMover();
+		}
 
-		//if (_hasStarted)
-		//	NameField.gameObject.SetActive(false);
+		if (_hasStarted)
+			NameField.gameObject.SetActive(false);
 		
 		//CmdGetMoverPosition(pos);
 	}
@@ -105,8 +117,16 @@ public class Player : CaptainsMessPlayer {
 		if (Physics.Raycast(ray, out hit))
 		{
 			_headquartersClickTime = Time.time;
-			//_headquartersClickPos = AsymmetricGameSession.instance.moverTran.position;
+			CmdSpawnBomb(Time.time, hit.point);
 		}
+	}
+
+	[Command]
+	public void CmdSpawnBomb(float clickTime, Vector3 bombPos)
+	{
+		Debug.Log("Spawn Bomb");
+		_bomb = Instantiate(BombPrefab, bombPos, Quaternion.identity) as GameObject;
+		NetworkServer.Spawn(_bomb);
 	}
 
 	[ClientRpc]

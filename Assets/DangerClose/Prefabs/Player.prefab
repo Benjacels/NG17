@@ -131,6 +131,7 @@ MonoBehaviour:
   PlayerImage: {fileID: 0}
   NameField: {fileID: 114000010140477594}
   ReadyField: {fileID: 114000011717894292}
+  BombPrefab: {fileID: 1000013916652258, guid: 2b3516097029d45b69339fd52c8194df, type: 2}
 --- !u!114 &114000011717894292
 MonoBehaviour:
   m_ObjectHideFlags: 1
