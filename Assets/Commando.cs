@@ -3,8 +3,6 @@ using System.Collections;
 
 public class Commando : DestroyableObject {
 
-	private Vector3 _startPos;
-
     // gem originale transform værdier, så vi kan ændre orientering, uden at fucke inspector værdier op
     private Transform _origPos;
 

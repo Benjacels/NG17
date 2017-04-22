@@ -9,9 +9,7 @@ public class DestroyableObject : MonoBehaviour {
 		Destroyed
 	}
 
-	private Vector3 _startPos;
-
-	public static int TargetsDestroyed;
+	protected Vector3 _startPos;
 
 	private Player _player;
 
@@ -33,12 +31,6 @@ public class DestroyableObject : MonoBehaviour {
 		_currentDestroyState = DestroyableObjectState.Destroyed;
 
 		_player = FindObjectOfType<Player>();
-
-		if (gameObject.CompareTag("Target"))
-			TargetsDestroyed++;
-
-		if (TargetsDestroyed >= _player.TargetGoal)
-			Debug.Log("VICTORY");
 	}
 
 	public virtual void ReviveObject()

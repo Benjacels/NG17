@@ -87,7 +87,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 2095b6329b1e64260a05a04470c64a36, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  AliveSprite: {fileID: 10913, guid: 0000000000000000f000000000000000, type: 0}
+  AliveSprite: {fileID: 21300008, guid: 1ef49dbb34f486a44add8e80a6081aa2, type: 3}
   DestroyedSprite: {fileID: 10901, guid: 0000000000000000f000000000000000, type: 0}
 --- !u!135 &135000013561648012
 SphereCollider:
