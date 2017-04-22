@@ -63,14 +63,14 @@ public class CaptainsMessDebugGUI : MonoBehaviour
 		{
 			if (networkManager.IsConnected())
 			{
-				GUI.color = Color.red;
-				if (GUILayout.Button("Disconnect", GUILayout.Width(200), GUILayout.Height(100)))
-				{
-					mess.Cancel();
-				}
-				GUI.color = Color.white;
+				//GUI.color = Color.red;
+				//if (GUILayout.Button("Disconnect", GUILayout.Width(200), GUILayout.Height(100)))
+				//{
+				//	mess.Cancel();
+				//}
+				//GUI.color = Color.white;
 			}
-			else if (networkManager.IsBroadcasting() || networkManager.IsJoining())
+			if (networkManager.IsBroadcasting() || networkManager.IsJoining())
 			{
 				GUI.color = Color.yellow;
 				if (GUILayout.Button("Cancel", GUILayout.Width(200), GUILayout.Height(100)))
@@ -79,7 +79,7 @@ public class CaptainsMessDebugGUI : MonoBehaviour
 				}
 				GUI.color = Color.white;
 			}
-			else
+			else if(!mess.IsConnected())
 			{
 				GUILayout.BeginHorizontal();
 				{
@@ -118,6 +118,6 @@ public class CaptainsMessDebugGUI : MonoBehaviour
 		var style = new GUIStyle();
 		style.fontSize = 20;
 		style.normal.textColor = Color.yellow;
-		GUILayout.Label(NetworkDebugString(), style);
+		//GUILayout.Label(NetworkDebugString(), style);
 	}
 }
