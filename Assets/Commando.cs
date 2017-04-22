@@ -69,7 +69,7 @@ public class Commando : DestroyableObject {
         {
             //rotate 90 degrees around z, negate scale y
             transform.localScale = new Vector3(_origPos.localScale.x, -_origPos.localScale.y, _origPos.localScale.z);
-            transform.rotation.SetEulerAngles(0, 0, 90); // Ugh, deprecated, håber det duer
+            transform.rotation = new Quaternion(0, 0, 0.7f, 0.7f);
             _facingUp = false;
             _facingDown = false;
             _facingLeft = false;
@@ -83,7 +83,7 @@ public class Commando : DestroyableObject {
         {
             //Rotate 90 degrees, orig scale
             transform.localScale = _origPos.localScale;
-            transform.rotation.SetEulerAngles(0, 0, 90);
+            transform.rotation = new Quaternion(0, 0, 0.7f, 0.7f);
             _facingUp = false;
             _facingDown = false;
             _facingLeft = true;
