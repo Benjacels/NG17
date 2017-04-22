@@ -12,6 +12,7 @@ TagManager:
   - IntelObject
   - LZObject
   - EndGameParent
+  - AmmoParent
   layers:
   - Default
   - TransparentFX
