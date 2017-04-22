@@ -188,7 +188,8 @@ public class Player : CaptainsMessPlayer {
 			foreach (TankScript tankScript in tankScripts)
 				tankScript.gameObject.SetActive(false);
 
-			_buttonEventParent.gameObject.SetActive(false);
+			if(_buttonEventParent != null)
+				_buttonEventParent.gameObject.SetActive(false);
 		}
 	}
 

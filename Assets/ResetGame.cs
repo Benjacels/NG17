@@ -9,7 +9,5 @@ public class ResetGame : MonoBehaviour {
 
 		foreach (DestroyableObject destroyObject in destroyableObjects)
 			destroyObject.ReviveObject();
-
-		DestroyableObject.TargetsDestroyed = 0;
 	}
 }

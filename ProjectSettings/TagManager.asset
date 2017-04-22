@@ -8,7 +8,6 @@ TagManager:
   - Commando_ButtonEventParent
   - ButtonEventParent
   - ResetGameParent
-  - Target
   layers:
   - Default
   - TransparentFX

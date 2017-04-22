@@ -11,8 +11,6 @@ public class DestroyableObject : MonoBehaviour {
 
 	private Vector3 _startPos;
 
-	public static int TargetsDestroyed;
-
 	private Player _player;
 
 	public Sprite AliveSprite;
@@ -33,12 +31,6 @@ public class DestroyableObject : MonoBehaviour {
 		_currentDestroyState = DestroyableObjectState.Destroyed;
 
 		_player = FindObjectOfType<Player>();
-
-		if (gameObject.CompareTag("Target"))
-			TargetsDestroyed++;
-
-		if (TargetsDestroyed >= _player.TargetGoal)
-			Debug.Log("VICTORY");
 	}
 
 	public virtual void ReviveObject()
