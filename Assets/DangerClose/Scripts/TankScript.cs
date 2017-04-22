@@ -5,11 +5,17 @@ using System;
 public class TankScript : MonoBehaviour {
 
     public GameObject path;
+    public GameObject bullet;
     public float speedFraction = 0.01f;
     public float rotationSpeed = 360f;
+    public float bulletSpeed = 100f;
+    public float shootTime = 2; // secs between shots
+    float timeSinceLastShot = 0;
 
-
+    // should i shoot vars
+    Transform playerPosition;
     bool targetWithinRange = false;
+    // Path finding vars
     float distCovered = 0;
     Transform[] nodes;
     Vector3 currentPos, nextPos;
@@ -35,6 +41,31 @@ public class TankScript : MonoBehaviour {
         if (!targetWithinRange)
         {
             MoveEnemy();
+        }
+        else
+        {
+            //enemy is within range.
+            //Shoot projectile towards his posision.
+            Shoot();
+        }
+    }
+
+    private void Shoot()
+    {
+        if (timeSinceLastShot <= 0)
+        {
+            Vector3 shootDirection = playerPosition.position - transform.position;
+            shootDirection.Normalize();
+            GameObject projectile = Instantiate(bullet, transform.position, Quaternion.identity) as GameObject;
+            if (projectile != null)
+            {
+                projectile.GetComponent<Rigidbody>().AddForce(shootDirection * bulletSpeed);
+            }
+            timeSinceLastShot = shootTime;
+        }
+        else
+        {
+            timeSinceLastShot -= Time.deltaTime; 
         }
     }
 
@@ -77,17 +108,18 @@ public class TankScript : MonoBehaviour {
             return 0;
         }
     }
+
     private void OnTriggerEnter(Collider other)
     {
-        Debug.Log("SOMETHING ENTERED");
         if (other.tag == "Player")
         {
-            targetWithinRange = true; 
+            targetWithinRange = true;
+            playerPosition = other.transform;
         }
     }
+
     private void OnTriggerExit(Collider other)
     {
-        Debug.Log("yooooo");
         if (other.tag == "Player")
         {
             targetWithinRange = false;
