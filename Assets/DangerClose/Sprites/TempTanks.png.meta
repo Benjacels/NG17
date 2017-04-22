@@ -1,0 +1,451 @@
+fileFormatVersion: 2
+guid: 9f31760da13976048b7cb60bf34ef039
+timeCreated: 1492806829
+licenseType: Free
+TextureImporter:
+  fileIDToRecycleName:
+    21300000: TempTanks_0
+    21300002: TempTanks_1
+    21300004: TempTanks_2
+    21300006: TempTanks_3
+    21300008: "T\xE5rn1"
+    21300010: "T\xE5rn2"
+    21300012: TempTanks_6
+    21300014: TempTanks_7
+    21300016: Tank1
+    21300018: Tank2
+    21300020: TempTanks_10
+    21300022: TempTanks_11
+    21300024: TempTanks_12
+    21300026: TempTanks_13
+    21300028: TempTanks_14
+    21300030: TempTanks_15
+    21300032: TempTanks_16
+    21300034: TempTanks_17
+    21300036: TempTanks_18
+    21300038: TempTanks_19
+    21300040: TempTanks_20
+    21300042: TempTanks_21
+    21300044: TempTanks_22
+    21300046: TempTanks_23
+    21300048: TempTanks_24
+    21300050: TempTanks_25
+    21300052: TempTanks_26
+    21300054: TempTanks_27
+  serializedVersion: 2
+  mipmaps:
+    mipMapMode: 0
+    enableMipMap: 1
+    linearTexture: 0
+    correctGamma: 0
+    fadeOut: 0
+    borderMipMap: 0
+    mipMapFadeDistanceStart: 1
+    mipMapFadeDistanceEnd: 3
+  bumpmap:
+    convertToNormalMap: 0
+    externalNormalMap: 0
+    heightScale: 0.25
+    normalMapFilter: 0
+  isReadable: 0
+  grayScaleToAlpha: 0
+  generateCubemap: 0
+  cubemapConvolution: 0
+  cubemapConvolutionSteps: 7
+  cubemapConvolutionExponent: 1.5
+  seamlessCubemap: 0
+  textureFormat: -1
+  maxTextureSize: 2048
+  textureSettings:
+    filterMode: -1
+    aniso: 16
+    mipBias: -1
+    wrapMode: 1
+  nPOTScale: 0
+  lightmap: 0
+  rGBM: 0
+  compressionQuality: 50
+  allowsAlphaSplitting: 0
+  spriteMode: 2
+  spriteExtrude: 1
+  spriteMeshType: 1
+  alignment: 0
+  spritePivot: {x: 0.5, y: 0.5}
+  spriteBorder: {x: 0, y: 0, z: 0, w: 0}
+  spritePixelsToUnits: 100
+  alphaIsTransparency: 1
+  spriteTessellationDetail: -1
+  textureType: 8
+  buildTargetSettings: []
+  spriteSheet:
+    serializedVersion: 2
+    sprites:
+    - serializedVersion: 2
+      name: TempTanks_0
+      rect:
+        serializedVersion: 2
+        x: 65
+        y: 243
+        width: 33
+        height: 60
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: TempTanks_1
+      rect:
+        serializedVersion: 2
+        x: 153
+        y: 234
+        width: 34
+        height: 81
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: TempTanks_2
+      rect:
+        serializedVersion: 2
+        x: 245
+        y: 237
+        width: 34
+        height: 73
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: TempTanks_3
+      rect:
+        serializedVersion: 2
+        x: 320
+        y: 237
+        width: 36
+        height: 86
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: "T\xE5rn1"
+      rect:
+        serializedVersion: 2
+        x: 72
+        y: 170
+        width: 22
+        height: 39
+      alignment: 9
+      pivot: {x: 0.47788793, y: 0.2879486}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: "T\xE5rn2"
+      rect:
+        serializedVersion: 2
+        x: 159
+        y: 166
+        width: 23
+        height: 58
+      alignment: 9
+      pivot: {x: 0.52115065, y: 0.2316021}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: TempTanks_6
+      rect:
+        serializedVersion: 2
+        x: 252
+        y: 160
+        width: 24
+        height: 61
+      alignment: 9
+      pivot: {x: 0.52027005, y: 0.30860177}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: TempTanks_7
+      rect:
+        serializedVersion: 2
+        x: 335
+        y: 160
+        width: 25
+        height: 69
+      alignment: 9
+      pivot: {x: 0.51945925, y: 0.21798794}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: Tank1
+      rect:
+        serializedVersion: 2
+        x: 67
+        y: 87
+        width: 33
+        height: 60
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: Tank2
+      rect:
+        serializedVersion: 2
+        x: 154
+        y: 81
+        width: 34
+        height: 64
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: TempTanks_10
+      rect:
+        serializedVersion: 2
+        x: 249
+        y: 85
+        width: 34
+        height: 59
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: TempTanks_11
+      rect:
+        serializedVersion: 2
+        x: 333
+        y: 82
+        width: 36
+        height: 61
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: TempTanks_12
+      rect:
+        serializedVersion: 2
+        x: 150
+        y: 51
+        width: 12
+        height: 12
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: TempTanks_13
+      rect:
+        serializedVersion: 2
+        x: 161
+        y: 48
+        width: 28
+        height: 16
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: TempTanks_14
+      rect:
+        serializedVersion: 2
+        x: 190
+        y: 51
+        width: 7
+        height: 12
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: TempTanks_15
+      rect:
+        serializedVersion: 2
+        x: 199
+        y: 51
+        width: 8
+        height: 13
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: TempTanks_16
+      rect:
+        serializedVersion: 2
+        x: 334
+        y: 56
+        width: 10
+        height: 12
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: TempTanks_17
+      rect:
+        serializedVersion: 2
+        x: 345
+        y: 56
+        width: 19
+        height: 8
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: TempTanks_18
+      rect:
+        serializedVersion: 2
+        x: 363
+        y: 56
+        width: 18
+        height: 12
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: TempTanks_19
+      rect:
+        serializedVersion: 2
+        x: 382
+        y: 56
+        width: 16
+        height: 8
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: TempTanks_20
+      rect:
+        serializedVersion: 2
+        x: 45
+        y: 36
+        width: 15
+        height: 12
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: TempTanks_21
+      rect:
+        serializedVersion: 2
+        x: 61
+        y: 36
+        width: 15
+        height: 10
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: TempTanks_22
+      rect:
+        serializedVersion: 2
+        x: 77
+        y: 36
+        width: 33
+        height: 12
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: TempTanks_23
+      rect:
+        serializedVersion: 2
+        x: 111
+        y: 35
+        width: 14
+        height: 9
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: TempTanks_24
+      rect:
+        serializedVersion: 2
+        x: 244
+        y: 36
+        width: 10
+        height: 12
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: TempTanks_25
+      rect:
+        serializedVersion: 2
+        x: 255
+        y: 36
+        width: 27
+        height: 8
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: TempTanks_26
+      rect:
+        serializedVersion: 2
+        x: 283
+        y: 36
+        width: 16
+        height: 8
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: TempTanks_27
+      rect:
+        serializedVersion: 2
+        x: 303
+        y: 36
+        width: 20
+        height: 12
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      tessellationDetail: 0
+    outline: []
+  spritePackingTag: 
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
