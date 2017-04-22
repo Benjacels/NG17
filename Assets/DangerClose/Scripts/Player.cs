@@ -21,6 +21,11 @@ public class Player : CaptainsMessPlayer {
 	public GameObject BombPrefab;
 	private GameObject _bomb;
 
+	public GameObject CommandoPrefab;
+	private GameObject _commando;
+
+	private Vector3 _commandoStartPos;
+
 	private int _prevtouchCount;
 
 	private int _headquartersClickPos;
@@ -33,9 +38,9 @@ public class Player : CaptainsMessPlayer {
 		base.OnStartLocalPlayer();
 
 		if (playerIndex == 0)
-			_playerType = PlayerTypeEnum.Commando;
-		else
 			_playerType = PlayerTypeEnum.Headquarters;
+		else
+			_playerType = PlayerTypeEnum.Commando;
 	}
 
 	[Client]
@@ -81,7 +86,7 @@ public class Player : CaptainsMessPlayer {
 
 	public void Update()
 	{
-		if (_playerType == PlayerTypeEnum.Headquarters && _hasStarted)
+		if (_playerType == PlayerTypeEnum.Headquarters && isLocalPlayer && _hasStarted)
 		{
 			Ray ray = new Ray();
 
@@ -117,14 +122,14 @@ public class Player : CaptainsMessPlayer {
 		if (Physics.Raycast(ray, out hit))
 		{
 			_headquartersClickTime = Time.time;
-			CmdSpawnBomb(Time.time, hit.point);
+			SpawnBomb(Time.time, hit.point);
 		}
 	}
 
-	[Command]
-	public void CmdSpawnBomb(float clickTime, Vector3 bombPos)
+	public void SpawnBomb(float clickTime, Vector3 bombPos)
 	{
 		Debug.Log("Spawn Bomb");
+
 		_bomb = Instantiate(BombPrefab, bombPos, Quaternion.identity) as GameObject;
 		NetworkServer.Spawn(_bomb);
 	}
@@ -139,6 +144,11 @@ public class Player : CaptainsMessPlayer {
 	private void SetupGame()
 	{
 		_hasStarted = true;
+
+		_commandoStartPos = GameObject.FindWithTag("CommandoStartPos").transform.position;
+
+		if (_playerType == PlayerTypeEnum.Commando && isLocalPlayer && CommandoPrefab != null)
+			_commando = Instantiate(CommandoPrefab, _commandoStartPos, Quaternion.identity) as GameObject;
 	}
 
 	void OnGUI()

@@ -132,6 +132,8 @@ MonoBehaviour:
   NameField: {fileID: 114000010140477594}
   ReadyField: {fileID: 114000011717894292}
   BombPrefab: {fileID: 1000013916652258, guid: 2b3516097029d45b69339fd52c8194df, type: 2}
+  CommandoPrefab: {fileID: 1000011391322180, guid: c918ec67469a84bc5a346aabb85d7995,
+    type: 2}
 --- !u!114 &114000011717894292
 MonoBehaviour:
   m_ObjectHideFlags: 1
