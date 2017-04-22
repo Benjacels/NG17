@@ -105,13 +105,10 @@ public class Player : CaptainsMessPlayer {
 
 				CastRay(ray);
 			}
-			//UpdateMover();
 		}
 
 		if (_hasStarted)
 			NameField.gameObject.SetActive(false);
-		
-		//CmdGetMoverPosition(pos);
 	}
 
 
@@ -147,8 +144,11 @@ public class Player : CaptainsMessPlayer {
 
 		_commandoStartPos = GameObject.FindWithTag("CommandoStartPos").transform.position;
 
-		if (_playerType == PlayerTypeEnum.Commando && isLocalPlayer && CommandoPrefab != null)
+		if (_playerType == PlayerTypeEnum.Commando)
+		{
 			_commando = Instantiate(CommandoPrefab, _commandoStartPos, Quaternion.identity) as GameObject;
+			Camera.main.transform.SetParent(_commando.transform, false);
+		}
 	}
 
 	void OnGUI()
