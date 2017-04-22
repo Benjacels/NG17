@@ -8,6 +8,9 @@ TagManager:
   - Commando_ButtonEventParent
   - ButtonEventParent
   - ResetGameParent
+  - Target
+  - IntelObject
+  - LZObject
   layers:
   - Default
   - TransparentFX
