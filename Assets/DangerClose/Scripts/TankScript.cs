@@ -12,7 +12,7 @@ public class TankScript : MonoBehaviour {
     public float shootTime = 2; // secs between shots
     float timeSinceLastShot = 0;
 
-    public AudioSource gunShot;
+    AudioSource gunShot;
     // should i shoot vars
     Transform playerPosition;
     bool targetWithinRange = false;
