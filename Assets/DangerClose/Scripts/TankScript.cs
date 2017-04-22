@@ -12,6 +12,7 @@ public class TankScript : MonoBehaviour {
     public float shootTime = 2; // secs between shots
     float timeSinceLastShot = 0;
 
+    public AudioSource gunShot;
     // should i shoot vars
     Transform playerPosition;
     bool targetWithinRange = false;
@@ -32,6 +33,9 @@ public class TankScript : MonoBehaviour {
         // calc the direction, normalize for now
         direction = nextPos - currentPos;
         transform.LookAt(transform.position + new Vector3(0, 0, 1), direction);
+
+        //get audio
+        gunShot = GetComponent<AudioSource>();
 	}
 
 
@@ -62,6 +66,7 @@ public class TankScript : MonoBehaviour {
                 projectile.GetComponent<Rigidbody>().AddForce(shootDirection * bulletSpeed);
             }
             timeSinceLastShot = shootTime;
+            gunShot.Play();
         }
         else
         {
