@@ -210,12 +210,12 @@ Prefab:
     - target: {fileID: 224000012605344254, guid: 1e35b03be8c17428fa930ad5545a900b,
         type: 2}
       propertyPath: m_SizeDelta.x
-      value: 199.99998
+      value: 217.54387
       objectReference: {fileID: 0}
     - target: {fileID: 224000012605344254, guid: 1e35b03be8c17428fa930ad5545a900b,
         type: 2}
       propertyPath: m_SizeDelta.y
-      value: 30.43478
+      value: 35.08772
       objectReference: {fileID: 0}
     - target: {fileID: 224000011556884374, guid: 1e35b03be8c17428fa930ad5545a900b,
         type: 2}
@@ -737,9 +737,9 @@ Transform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_Children:
   - {fileID: 370327577}
-  - {fileID: 1590747320}
   - {fileID: 1830670033}
   - {fileID: 826088252}
+  - {fileID: 1590747320}
   m_Father: {fileID: 1499439247}
   m_RootOrder: 3
 --- !u!1 &784115017
@@ -848,7 +848,7 @@ RectTransform:
   m_Children:
   - {fileID: 162297552}
   m_Father: {fileID: 478346853}
-  m_RootOrder: 3
+  m_RootOrder: 2
   m_AnchorMin: {x: 0, y: 1}
   m_AnchorMax: {x: 0, y: 1}
   m_AnchoredPosition: {x: 5, y: 99}
@@ -1201,10 +1201,10 @@ RectTransform:
   m_Children:
   - {fileID: 133027763}
   m_Father: {fileID: 478346853}
-  m_RootOrder: 1
+  m_RootOrder: 3
   m_AnchorMin: {x: 0, y: 1}
   m_AnchorMax: {x: 0, y: 1}
-  m_AnchoredPosition: {x: 360.6, y: -488}
+  m_AnchoredPosition: {x: 358.5849, y: -476}
   m_SizeDelta: {x: 10, y: 10}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1590747321
@@ -1292,18 +1292,7 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 1590747323}
   m_OnClick:
     m_PersistentCalls:
-      m_Calls:
-      - m_Target: {fileID: 1767018271}
-        m_MethodName: OnCommandoBackDown
-        m_Mode: 1
-        m_Arguments:
-          m_ObjectArgument: {fileID: 0}
-          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-          m_IntArgument: 0
-          m_FloatArgument: 0
-          m_StringArgument: 
-          m_BoolArgument: 0
-        m_CallState: 2
+      m_Calls: []
     m_TypeName: UnityEngine.UI.Button+ButtonClickedEvent, UnityEngine.UI, Version=1.0.0.0,
       Culture=neutral, PublicKeyToken=null
 --- !u!114 &1590747323
@@ -1511,7 +1500,7 @@ RectTransform:
   m_Children:
   - {fileID: 1054591815}
   m_Father: {fileID: 478346853}
-  m_RootOrder: 2
+  m_RootOrder: 1
   m_AnchorMin: {x: 0, y: 1}
   m_AnchorMax: {x: 0, y: 1}
   m_AnchoredPosition: {x: 690, y: 99.9}

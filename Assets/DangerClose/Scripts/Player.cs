@@ -113,6 +113,7 @@ public class Player : CaptainsMessPlayer {
 		else if(_playerType == PlayerTypeEnum.Commando && isLocalPlayer && _hasStarted)
 		{
 			Button button = FindObjectOfType<Button>();
+			MoveCommando();
 		}
 
 		if (_hasStarted)
@@ -164,8 +165,6 @@ public class Player : CaptainsMessPlayer {
 
 			_commando = Instantiate(CommandoPrefab, _commandoStartPos, Quaternion.identity) as GameObject;
 			Camera.main.transform.SetParent(_commando.transform, false);
-
-			MoveCommando();
 		}
 		else if (_playerType == PlayerTypeEnum.Headquarters && isLocalPlayer)
 			_buttonEventParent.gameObject.SetActive(false);
@@ -176,10 +175,7 @@ public class Player : CaptainsMessPlayer {
 		if (_buttonEventReceiver.CommandoForwardPressed)
 			_commando.transform.Translate(Vector3.up * Time.deltaTime, Space.World);
 		else if (_buttonEventReceiver.CommandoBackPressed)
-		{
-			Debug.Log("Commando moving down!");
 			_commando.transform.Translate(Vector3.down * Time.deltaTime, Space.World);
-		}
 		else if (_buttonEventReceiver.CommandoRightPressed)
 			_commando.transform.Translate(Vector3.right * Time.deltaTime, Space.World);
 		else if (_buttonEventReceiver.CommandoLeftPressed)
