@@ -73,7 +73,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   TargetSize: 10
   ScaleSpeed: 20
-  BombRadius: 1.5
+  BombRadius: 3
   DestroyDelay: 0.1
   BombSendDelay: 1
 --- !u!114 &114000013203797864
