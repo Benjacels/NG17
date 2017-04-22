@@ -37,6 +37,8 @@ public class Player : CaptainsMessPlayer {
 
 	private ButtonEventReceiver _buttonEventReceiver;
 
+	private Rigidbody _rigidbody;
+
 	public override void OnStartLocalPlayer()
 	{
 		base.OnStartLocalPlayer();
@@ -113,11 +115,16 @@ public class Player : CaptainsMessPlayer {
 		else if(_playerType == PlayerTypeEnum.Commando && isLocalPlayer && _hasStarted)
 		{
 			Button button = FindObjectOfType<Button>();
-			MoveCommando();
 		}
 
 		if (_hasStarted)
 			NameField.gameObject.SetActive(false);
+	}
+
+	public void FixedUpdate()
+	{
+		if (_playerType == PlayerTypeEnum.Commando && isLocalPlayer && _hasStarted)
+			MoveCommando();
 	}
 
 
@@ -165,6 +172,8 @@ public class Player : CaptainsMessPlayer {
 
 			_commando = Instantiate(CommandoPrefab, _commandoStartPos, Quaternion.identity) as GameObject;
 			Camera.main.transform.SetParent(_commando.transform, false);
+
+			_rigidbody = _commando.GetComponent<Rigidbody>();
 		}
 		else if (_playerType == PlayerTypeEnum.Headquarters && isLocalPlayer)
 			_buttonEventParent.gameObject.SetActive(false);
@@ -172,14 +181,19 @@ public class Player : CaptainsMessPlayer {
 
 	private void MoveCommando()
 	{
+		if (_buttonEventReceiver == null)
+			return;
+
 		if (_buttonEventReceiver.CommandoForwardPressed)
-			_commando.transform.Translate(Vector3.up * Time.deltaTime, Space.World);
+			_rigidbody.velocity = Vector3.up * 7;
 		else if (_buttonEventReceiver.CommandoBackPressed)
-			_commando.transform.Translate(Vector3.down * Time.deltaTime, Space.World);
+			_rigidbody.velocity = Vector3.down * 7;
 		else if (_buttonEventReceiver.CommandoRightPressed)
-			_commando.transform.Translate(Vector3.right * Time.deltaTime, Space.World);
+			_rigidbody.velocity = Vector3.right * 7;
 		else if (_buttonEventReceiver.CommandoLeftPressed)
-			_commando.transform.Translate(Vector3.left * Time.deltaTime, Space.World);
+			_rigidbody.velocity = Vector3.left * 7;
+		else
+			_rigidbody.Sleep();
 	}
 
 	void OnGUI()

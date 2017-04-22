@@ -121,7 +121,10 @@ public class GameSession : NetworkBehaviour {
 			}
 		}
 
-		gameStateField.text = message;
+		if (gameState != GameStateEnum.Playing)
+			gameStateField.text = gameState.ToString();
+		else
+			gameStateField.gameObject.SetActive(false);
 	}
 
 	// Client RPCs

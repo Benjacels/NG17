@@ -96,6 +96,9 @@ public class Listener : CaptainsMessListener {
 
 	void Update()
 	{
-		NetworkStateField.text = CurrentNetworkState.ToString();
+		if (CurrentNetworkState != NetworkState.Connected)
+			NetworkStateField.text = CurrentNetworkState.ToString();
+		else
+			NetworkStateField.gameObject.SetActive(false);
 	}
 }
