@@ -1,7 +1,7 @@
 ﻿using UnityEngine;
 using System.Collections;
 
-public class BulletScript : MonoBehaviour {
+public class BulletScript : ObjectDestroyer {
 
     public float timeToLive = 5;
 

@@ -9,6 +9,8 @@ public class DestroyableObject : MonoBehaviour {
 		Destroyed
 	}
 
+	private Vector3 _startPos;
+
 	public static int TargetsDestroyed;
 
 	private SpriteRenderer _spriteRenderer;
@@ -22,6 +24,8 @@ public class DestroyableObject : MonoBehaviour {
 	protected virtual void Start()
 	{
 		_spriteRenderer = GetComponent<SpriteRenderer>();
+		_startPos = transform.position;
+
 		ReviveObject();
 	}
 
@@ -43,5 +47,7 @@ public class DestroyableObject : MonoBehaviour {
 	{
 		_spriteRenderer.sprite = AliveSprite;
 		_currentDestroyState = DestroyableObjectState.Alive;
+
+		transform.position = _startPos;
 	}
 }

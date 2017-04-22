@@ -2,7 +2,7 @@
 using System.Collections;
 using System;
 
-public class TankScript : MonoBehaviour {
+public class TankScript : DestroyableObject {
 
     public GameObject path;
     public GameObject bullet;
@@ -12,7 +12,9 @@ public class TankScript : MonoBehaviour {
     public float shootTime = 2; // secs between shots
     float timeSinceLastShot = 0;
 
-    public AudioSource gunShot;
+	private bool _tankDisabled = false;
+
+    AudioSource gunShot;
     // should i shoot vars
     Transform playerPosition;
     bool targetWithinRange = false;
@@ -42,6 +44,9 @@ public class TankScript : MonoBehaviour {
     // Update is called once per frame
     void Update ()
     {
+		if (_tankDisabled)
+			return;
+
         if (!targetWithinRange)
         {
             MoveEnemy();
@@ -130,4 +135,16 @@ public class TankScript : MonoBehaviour {
             targetWithinRange = false;
         }
     }
+
+	public virtual void DestroyObject()
+	{
+		base.DestroyObject();
+		_tankDisabled = true;
+	}
+
+	public virtual void ReviveObject()
+	{
+		base.DestroyObject();
+		_tankDisabled = false;
+	}
 }
