@@ -8,6 +8,8 @@ public class TankScript : MonoBehaviour {
     public float speedFraction = 0.01f;
     public float rotationSpeed = 360f;
 
+
+    bool targetWithinRange = false;
     float distCovered = 0;
     Transform[] nodes;
     Vector3 currentPos, nextPos;
@@ -28,7 +30,16 @@ public class TankScript : MonoBehaviour {
 
 
     // Update is called once per frame
-    void Update () {
+    void Update ()
+    {
+        if (!targetWithinRange)
+        {
+            MoveEnemy();
+        }
+    }
+
+    private void MoveEnemy()
+    {
         transform.position = (Vector3.Lerp(currentPos, nextPos, distCovered));
 
         distCovered += speedFraction;
@@ -44,7 +55,7 @@ public class TankScript : MonoBehaviour {
 
             transform.LookAt(transform.position + new Vector3(0, 0, 1), direction);
         }
-	}
+    }
 
     private void PopulateNodes(int childCount)
     {
@@ -64,6 +75,22 @@ public class TankScript : MonoBehaviour {
         else
         {
             return 0;
+        }
+    }
+    private void OnTriggerEnter(Collider other)
+    {
+        Debug.Log("SOMETHING ENTERED");
+        if (other.tag == "Player")
+        {
+            targetWithinRange = true; 
+        }
+    }
+    private void OnTriggerExit(Collider other)
+    {
+        Debug.Log("yooooo");
+        if (other.tag == "Player")
+        {
+            targetWithinRange = false;
         }
     }
 }
