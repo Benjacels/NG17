@@ -172,6 +172,9 @@ public class Player : CaptainsMessPlayer {
 
 	private void MoveCommando()
 	{
+		if (_buttonEventReceiver == null)
+			return;
+
 		if (_buttonEventReceiver.CommandoForwardPressed)
 			_commando.transform.Translate(Vector3.up * Time.deltaTime, Space.World);
 		else if (_buttonEventReceiver.CommandoBackPressed)
