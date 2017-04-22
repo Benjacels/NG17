@@ -5,6 +5,8 @@ TagManager:
   serializedVersion: 2
   tags:
   - CommandoStartPos
+  - Commando_ButtonEventParent
+  - ButtonEventParent
   layers:
   - Default
   - TransparentFX

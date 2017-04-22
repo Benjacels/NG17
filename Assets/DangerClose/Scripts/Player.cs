@@ -31,7 +31,11 @@ public class Player : CaptainsMessPlayer {
 	private int _headquartersClickPos;
 	private float _headquartersClickTime;
 
+	private GameObject _buttonEventParent;
+
 	private PlayerTypeEnum _playerType;
+
+	private ButtonEventReceiver _buttonEventReceiver;
 
 	public override void OnStartLocalPlayer()
 	{
@@ -106,6 +110,10 @@ public class Player : CaptainsMessPlayer {
 				CastRay(ray);
 			}
 		}
+		else if(_playerType == PlayerTypeEnum.Commando && isLocalPlayer && _hasStarted)
+		{
+			Button button = FindObjectOfType<Button>();
+		}
 
 		if (_hasStarted)
 			NameField.gameObject.SetActive(false);
@@ -131,6 +139,8 @@ public class Player : CaptainsMessPlayer {
 		NetworkServer.Spawn(_bomb);
 	}
 
+
+
 	[ClientRpc]
 	public void RpcOnStartedGame()
 	{
@@ -140,15 +150,40 @@ public class Player : CaptainsMessPlayer {
 
 	private void SetupGame()
 	{
+		_buttonEventReceiver = FindObjectOfType<ButtonEventReceiver>();
+
 		_hasStarted = true;
 
 		_commandoStartPos = GameObject.FindWithTag("CommandoStartPos").transform.position;
 
+		_buttonEventParent = GameObject.FindWithTag("Commando_ButtonEventParent");
+
 		if (_playerType == PlayerTypeEnum.Commando)
 		{
+			_buttonEventParent.SetActive(true);
+
 			_commando = Instantiate(CommandoPrefab, _commandoStartPos, Quaternion.identity) as GameObject;
 			Camera.main.transform.SetParent(_commando.transform, false);
+
+			MoveCommando();
 		}
+		else if (_playerType == PlayerTypeEnum.Headquarters && isLocalPlayer)
+			_buttonEventParent.gameObject.SetActive(false);
+	}
+
+	private void MoveCommando()
+	{
+		if (_buttonEventReceiver.CommandoForwardPressed)
+			_commando.transform.Translate(Vector3.up * Time.deltaTime, Space.World);
+		else if (_buttonEventReceiver.CommandoBackPressed)
+		{
+			Debug.Log("Commando moving down!");
+			_commando.transform.Translate(Vector3.down * Time.deltaTime, Space.World);
+		}
+		else if (_buttonEventReceiver.CommandoRightPressed)
+			_commando.transform.Translate(Vector3.right * Time.deltaTime, Space.World);
+		else if (_buttonEventReceiver.CommandoLeftPressed)
+			_commando.transform.Translate(Vector3.left * Time.deltaTime, Space.World);
 	}
 
 	void OnGUI()
