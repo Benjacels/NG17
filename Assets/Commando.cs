@@ -42,7 +42,7 @@ public class Commando : DestroyableObject {
         // set back to orig transform, not position obviously
         if (!_facingUp)
         {
-            transform.rotation = Quaternion.identity; 
+            transform.rotation = new Quaternion(0, 0, 1, 0);
             _facingUp = true;
             _facingDown = false;
             _facingLeft = false;
@@ -55,7 +55,7 @@ public class Commando : DestroyableObject {
         if (!_facingDown)
         {
             // negate scale y coordinate
-            transform.rotation = new Quaternion(0, 0, 1, 0);
+            transform.rotation = Quaternion.identity; 
             _facingUp = false;
             _facingDown = true;
             _facingLeft = false;
@@ -68,7 +68,7 @@ public class Commando : DestroyableObject {
         if (!_facingRight)
         {
             //rotate 90 degrees around z, negate scale y
-            transform.rotation = new Quaternion(0, 0, 0.7f, -0.7f);
+            transform.rotation = new Quaternion(0, 0, 0.7f, 0.7f);
             _facingUp = false;
             _facingDown = false;
             _facingLeft = false;
@@ -81,7 +81,7 @@ public class Commando : DestroyableObject {
         if (!_facingLeft)
         {
             //Rotate 90 degrees, orig scale
-            transform.rotation = new Quaternion(0, 0, 0.7f, 0.7f);
+            transform.rotation = new Quaternion(0, 0, 0.7f, -0.7f);
             _facingUp = false;
             _facingDown = false;
             _facingLeft = true;
