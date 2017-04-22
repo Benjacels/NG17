@@ -23,23 +23,14 @@ public class TankScript : MonoBehaviour {
         transform.position = transform.TransformPoint(currentPos);
         // calc the direction, normalize for now
         direction = nextPos - currentPos;
-        direction.Normalize();
+        transform.LookAt(transform.position + new Vector3(0, 0, 1), direction);
 	}
 
-    private void PopulateNodes(int childCount)
-    {
-        nodes = new Transform[childCount];
-        for (int i = 0; i < childCount; i++)
-        {
-            nodes[i] = path.transform.GetChild(i);
-        }
-    }
 
     // Update is called once per frame
     void Update () {
         transform.position = (Vector3.Lerp(currentPos, nextPos, distCovered));
 
-        Debug.DrawRay(transform.position, direction, Color.red);
         distCovered += speedFraction;
         if (distCovered > 1)
         {
@@ -50,13 +41,19 @@ public class TankScript : MonoBehaviour {
             nextPos = nodes[index].position;
             // recalc direction;
             direction = nextPos - currentPos;
-            direction.Normalize();
 
-            Quaternion rot = Quaternion.Slerp(transform.rotation, Quaternion.LookRotation(direction), 1);
-            
+            transform.LookAt(transform.position + new Vector3(0, 0, 1), direction);
         }
-        Debug.Log(String.Format("rot: {0}, Orig: {1}", Quaternion.LookRotation(direction, -Vector3.forward),transform.rotation));
 	}
+
+    private void PopulateNodes(int childCount)
+    {
+        nodes = new Transform[childCount];
+        for (int i = 0; i < childCount; i++)
+        {
+            nodes[i] = path.transform.GetChild(i);
+        }
+    }
 
     int GetNextIndex()
     {
