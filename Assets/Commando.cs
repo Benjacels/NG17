@@ -96,9 +96,15 @@ public class Commando : DestroyableObject {
 	void OnTriggerEnter(Collider other)
 	{
 		if (other.gameObject.CompareTag("IntelObject"))
+		{
+			other.gameObject.SetActive(false);
 			HasTriggerObject = true;
+		}
 
 		if (other.gameObject.CompareTag("LZObject") && HasTriggerObject)
+		{
+			other.gameObject.SetActive(false);
 			FindObjectOfType<Player>().CmdEndGame();
+		}
 	}
 }
