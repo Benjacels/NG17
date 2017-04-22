@@ -46,7 +46,10 @@ public class Player : CaptainsMessPlayer {
 		if (playerIndex == 0)
 			_playerType = PlayerTypeEnum.Headquarters;
 		else
+		{
+			Camera.main.orthographicSize /= 3;
 			_playerType = PlayerTypeEnum.Commando;
+		}
 	}
 
 	[Client]
