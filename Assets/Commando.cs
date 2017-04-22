@@ -101,6 +101,7 @@ public class Commando : DestroyableObject {
 		{
 			other.gameObject.SetActive(false);
 			FindObjectOfType<Player>().CmdEndGame();
+			FindObjectOfType<EndGameScript>().EndGame();
 		}
 	}
     void PlaySoundStepOne()

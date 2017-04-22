@@ -35,6 +35,8 @@ public class Player : CaptainsMessPlayer {
 
 	private GameObject _buttonEventParent;
 
+	private int _bombAmmo = 5;
+
 	private PlayerTypeEnum _playerType;
 
 	private ButtonEventReceiver _buttonEventReceiver;
@@ -100,6 +102,9 @@ public class Player : CaptainsMessPlayer {
 	{
 		if (_playerType == PlayerTypeEnum.Headquarters && isLocalPlayer && _hasStarted)
 		{
+			if (_bombAmmo < 1)
+				return;
+
 			Ray ray = new Ray();
 
 			if (Input.GetMouseButtonDown(0))
@@ -151,6 +156,8 @@ public class Player : CaptainsMessPlayer {
 
 		_bomb = Instantiate(BombPrefab, bombPos, Quaternion.identity) as GameObject;
 		NetworkServer.Spawn(_bomb);
+
+		_bombAmmo--;
 	}
 
 
