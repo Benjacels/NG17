@@ -136,15 +136,15 @@ public class TankScript : DestroyableObject {
         }
     }
 
-	public virtual void DestroyObject()
+	public override void DestroyObject()
 	{
 		base.DestroyObject();
 		_tankDisabled = true;
 	}
 
-	public virtual void ReviveObject()
+	public override void ReviveObject()
 	{
-		base.DestroyObject();
+		base.ReviveObject();
 		_tankDisabled = false;
 	}
 }

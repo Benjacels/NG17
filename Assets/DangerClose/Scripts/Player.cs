@@ -183,7 +183,13 @@ public class Player : CaptainsMessPlayer {
 			_rigidbody = _commando.GetComponent<Rigidbody>();
 		}
 		else if (_playerType == PlayerTypeEnum.Headquarters && isLocalPlayer)
+		{
+			TankScript[] tankScripts = GameObject.FindObjectsOfType(typeof(TankScript)) as TankScript[];
+			foreach (TankScript tankScript in tankScripts)
+				tankScript.gameObject.SetActive(false);
+
 			_buttonEventParent.gameObject.SetActive(false);
+		}
 	}
 
 	private void MoveCommando()
