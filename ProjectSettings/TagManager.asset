@@ -11,6 +11,7 @@ TagManager:
   - Target
   - IntelObject
   - LZObject
+  - EndGameParent
   layers:
   - Default
   - TransparentFX
