@@ -18,4 +18,16 @@ public class Commando : DestroyableObject {
 
 		transform.position = _startPos;
 	}
+
+	public override void DestroyObject()
+	{
+		base.DestroyObject();
+
+		Invoke("ShowResetGameVisuals", 3);
+	}
+
+	void ShowResetGameVisuals()
+	{
+		GameObject.FindWithTag("ResetGameParent").transform.GetChild(0).gameObject.SetActive(true);
+	}
 }
