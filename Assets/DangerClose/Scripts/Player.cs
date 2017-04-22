@@ -41,8 +41,8 @@ public class Player : CaptainsMessPlayer {
 
 	private Rigidbody _rigidbody;
     Commando _commandoScript;
-    
-	public override void OnStartLocalPlayer()
+
+    public override void OnStartLocalPlayer()
 	{
 		base.OnStartLocalPlayer();
 
@@ -181,6 +181,7 @@ public class Player : CaptainsMessPlayer {
 			_commando = Instantiate(CommandoPrefab, _commandoStartPos, Quaternion.identity) as GameObject;
 			Camera.main.transform.SetParent(_commando.transform, false);
             _commandoScript = _commando.GetComponent<Commando>();
+           
 
 			_rigidbody = _commando.GetComponent<Rigidbody>();
 		}
@@ -206,27 +207,34 @@ public class Player : CaptainsMessPlayer {
 
 	private void MoveCommando()
 	{
-		if (_buttonEventReceiver == null)
-			return;
+        if (_buttonEventReceiver == null)
+        {
+            _commandoScript.SetWalkingAnimation(false);
+            return;
+        }
 
         if (_buttonEventReceiver.CommandoForwardPressed)
         {
             _commandoScript.FaceUp();
+            _commandoScript.SetWalkingAnimation(true);
             _rigidbody.velocity = Vector3.up * 7;
         }
         else if (_buttonEventReceiver.CommandoBackPressed)
         {
             _commandoScript.FaceDown();
+            _commandoScript.SetWalkingAnimation(true);
             _rigidbody.velocity = Vector3.down * 7;
         }
         else if (_buttonEventReceiver.CommandoRightPressed)
         {
             _commandoScript.FaceRight();
+            _commandoScript.SetWalkingAnimation(true);
             _rigidbody.velocity = Vector3.right * 7;
         }
         else if (_buttonEventReceiver.CommandoLeftPressed)
         {
             _commandoScript.FaceLeft();
+            _commandoScript.SetWalkingAnimation(true);
             _rigidbody.velocity = Vector3.left * 7;
         }
         else
