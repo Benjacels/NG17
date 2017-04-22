@@ -249,6 +249,7 @@ public class Player : CaptainsMessPlayer {
             return;
         }
 
+        _commandoScript.SetWalkingAnimation(false);
         if (_buttonEventReceiver.CommandoForwardPressed)
         {
             _commandoScript.FaceUp();
