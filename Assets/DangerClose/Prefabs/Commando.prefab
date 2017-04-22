@@ -22,6 +22,7 @@ GameObject:
   - 212: {fileID: 212000011071040008}
   - 135: {fileID: 135000013561648012}
   - 54: {fileID: 54000011111403172}
+  - 114: {fileID: 114000013758355090}
   m_Layer: 0
   m_Name: Commando
   m_TagString: Untagged
@@ -57,6 +58,19 @@ Rigidbody:
   m_Interpolate: 0
   m_Constraints: 120
   m_CollisionDetection: 0
+--- !u!114 &114000013758355090
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1000011391322180}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 2095b6329b1e64260a05a04470c64a36, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  AliveSprite: {fileID: 10913, guid: 0000000000000000f000000000000000, type: 0}
+  DestroyedSprite: {fileID: 10901, guid: 0000000000000000f000000000000000, type: 0}
 --- !u!135 &135000013561648012
 SphereCollider:
   m_ObjectHideFlags: 1

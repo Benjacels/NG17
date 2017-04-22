@@ -16,7 +16,7 @@ public class DestroyableObject : MonoBehaviour {
 
 	private DestroyableObjectState _currentDestroyState;
 
-	void Start()
+	protected virtual void Start()
 	{
 		_spriteRenderer = GetComponent<SpriteRenderer>();
 		ReviveObject();
