@@ -13,7 +13,6 @@ public class DestroyableObject : MonoBehaviour {
 
 	public static int TargetsDestroyed;
 
-	private SpriteRenderer _spriteRenderer;
 	private Player _player;
 
 	public Sprite AliveSprite;
@@ -23,7 +22,6 @@ public class DestroyableObject : MonoBehaviour {
 
 	protected virtual void Start()
 	{
-		_spriteRenderer = GetComponent<SpriteRenderer>();
 		_startPos = transform.position;
 
 		ReviveObject();
@@ -31,7 +29,7 @@ public class DestroyableObject : MonoBehaviour {
 
 	public virtual void DestroyObject()
 	{
-		_spriteRenderer.sprite = DestroyedSprite;
+		GetComponent<SpriteRenderer>().sprite = DestroyedSprite;
 		_currentDestroyState = DestroyableObjectState.Destroyed;
 
 		_player = FindObjectOfType<Player>();
@@ -45,7 +43,7 @@ public class DestroyableObject : MonoBehaviour {
 
 	public virtual void ReviveObject()
 	{
-		_spriteRenderer.sprite = AliveSprite;
+		GetComponent<SpriteRenderer>().sprite = AliveSprite;
 		_currentDestroyState = DestroyableObjectState.Alive;
 
 		transform.position = _startPos;
