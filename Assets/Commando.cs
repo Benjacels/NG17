@@ -6,6 +6,8 @@ public class Commando : DestroyableObject {
     // gem originale transform værdier, så vi kan ændre orientering, uden at fucke inspector værdier op
     private Transform _origPos;
 
+    private bool _facingUp = true, _facingDown = false, _facingLeft = false, _facingRight = false;
+
 	protected override void Start()
 	{
 		base.Start();
@@ -36,28 +38,56 @@ public class Commando : DestroyableObject {
     public void FaceUp()
     {
         // set back to orig transform, not position obviously
-        transform.localScale = _origPos.localScale;
-        transform.rotation = _origPos.rotation;
+        if (!_facingUp)
+        {
+            transform.localScale = _origPos.localScale;
+            transform.rotation = _origPos.rotation;
+            _facingUp = true;
+            _facingDown = false;
+            _facingLeft = false;
+            _facingRight = false;
+        }
     }
     
     public void FaceDown()
     {
-        // negate scale y coordinate
-        transform.localScale = new Vector3(_origPos.localScale.x, -_origPos.localScale.y, _origPos.localScale.z);
-        transform.rotation = _origPos.rotation;
+        if (!_facingDown)
+        {
+            // negate scale y coordinate
+            transform.localScale = new Vector3(_origPos.localScale.x, -_origPos.localScale.y, _origPos.localScale.z);
+            transform.rotation = _origPos.rotation;
+            _facingUp = false;
+            _facingDown = true;
+            _facingLeft = false;
+            _facingRight = false;
+        }
     }
 
     public void FaceRight()
     {
-        //rotate 90 degrees around z, negate scale y
-        transform.localScale = new Vector3(_origPos.localScale.x, -_origPos.localScale.y, _origPos.localScale.z);
-        transform.rotation.SetEulerAngles(0, 0, 90); // Ugh, deprecated, håber det duer
+        if (!_facingRight)
+        {
+            //rotate 90 degrees around z, negate scale y
+            transform.localScale = new Vector3(_origPos.localScale.x, -_origPos.localScale.y, _origPos.localScale.z);
+            transform.rotation.SetEulerAngles(0, 0, 90); // Ugh, deprecated, håber det duer
+            _facingUp = false;
+            _facingDown = false;
+            _facingLeft = false;
+            _facingRight = true;
+        }
     }
 
     public void FaceLeft()
     {
-        //Rotate 90 degrees, orig scale
-        transform.localScale = _origPos.localScale;
-        transform.rotation.SetEulerAngles(0, 0, 90);
+        if (!_facingLeft)
+        {
+            //Rotate 90 degrees, orig scale
+            transform.localScale = _origPos.localScale;
+            transform.rotation.SetEulerAngles(0, 0, 90);
+            _facingUp = false;
+            _facingDown = false;
+            _facingLeft = true;
+            _facingRight = false;
+        }
     }
 }
