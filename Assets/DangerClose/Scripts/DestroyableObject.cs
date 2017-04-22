@@ -9,7 +9,7 @@ public class DestroyableObject : MonoBehaviour {
 		Destroyed
 	}
 
-	private Vector3 _startPos;
+	protected Vector3 _startPos;
 
 	private Player _player;
 

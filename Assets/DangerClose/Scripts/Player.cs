@@ -40,7 +40,8 @@ public class Player : CaptainsMessPlayer {
 	private ButtonEventReceiver _buttonEventReceiver;
 
 	private Rigidbody _rigidbody;
-
+    Commando _commandoScript;
+    
 	public override void OnStartLocalPlayer()
 	{
 		base.OnStartLocalPlayer();
@@ -179,6 +180,7 @@ public class Player : CaptainsMessPlayer {
 
 			_commando = Instantiate(CommandoPrefab, _commandoStartPos, Quaternion.identity) as GameObject;
 			Camera.main.transform.SetParent(_commando.transform, false);
+            _commandoScript = _commando.GetComponent<Commando>();
 
 			_rigidbody = _commando.GetComponent<Rigidbody>();
 		}
@@ -198,16 +200,28 @@ public class Player : CaptainsMessPlayer {
 		if (_buttonEventReceiver == null)
 			return;
 
-		if (_buttonEventReceiver.CommandoForwardPressed)
-			_rigidbody.velocity = Vector3.up * 7;
-		else if (_buttonEventReceiver.CommandoBackPressed)
-			_rigidbody.velocity = Vector3.down * 7;
-		else if (_buttonEventReceiver.CommandoRightPressed)
-			_rigidbody.velocity = Vector3.right * 7;
-		else if (_buttonEventReceiver.CommandoLeftPressed)
-			_rigidbody.velocity = Vector3.left * 7;
-		else
-			_rigidbody.Sleep();
+        if (_buttonEventReceiver.CommandoForwardPressed)
+        {
+            _commandoScript.FaceUp();
+            _rigidbody.velocity = Vector3.up * 7;
+        }
+        else if (_buttonEventReceiver.CommandoBackPressed)
+        {
+            _commandoScript.FaceDown();
+            _rigidbody.velocity = Vector3.down * 7;
+        }
+        else if (_buttonEventReceiver.CommandoRightPressed)
+        {
+            _commandoScript.FaceRight();
+            _rigidbody.velocity = Vector3.right * 7;
+        }
+        else if (_buttonEventReceiver.CommandoLeftPressed)
+        {
+            _commandoScript.FaceLeft();
+            _rigidbody.velocity = Vector3.left * 7;
+        }
+        else
+            _rigidbody.Sleep();
 	}
 
 	void OnGUI()
