@@ -37,6 +37,7 @@ public class Player : CaptainsMessPlayer {
 
 	private int _startBombAmmo = 5;
 
+	[SyncVar]
 	private int _bombAmmo;
 	private Text _ammoNum;
 
@@ -169,13 +170,27 @@ public class Player : CaptainsMessPlayer {
 		_ammoNum.text = _bombAmmo.ToString();
 	}
 
-	[Command]
-	public void CmdResetAmmo(int startAmmo)
+	void SetBombAmmo(int ammo)
 	{
-		_bombAmmo = startAmmo;
+		_bombAmmo = ammo;
+	}
 
-		if(_ammoNum != null)
-			_ammoNum.text = _bombAmmo.ToString();
+	[Command]
+	public void CmdResetAmmo()
+	{
+		if (_playerType == PlayerTypeEnum.Commando)
+			return;
+
+		_bombAmmoParent = GameObject.FindWithTag("AmmoParent");
+		foreach (Transform tran in _bombAmmoParent.transform)
+		{
+			if (tran.GetComponent<Text>() != null)
+			{
+				SetBombAmmo(5);
+				_ammoNum = tran.GetComponent<Text>();
+				_ammoNum.text = _bombAmmo.ToString();
+			}
+		}
 	}
 
 

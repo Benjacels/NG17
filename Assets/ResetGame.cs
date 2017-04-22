@@ -11,7 +11,6 @@ public class ResetGame : MonoBehaviour {
 			destroyObject.ReviveObject();
 
 		FindObjectOfType<Commando>().HasTriggerObject = false;
-
-		FindObjectOfType<Player>().CmdResetAmmo(5);
+		FindObjectOfType<Player>().CmdResetAmmo();
 	}
 }
