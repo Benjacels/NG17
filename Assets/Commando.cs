@@ -1,10 +1,12 @@
-﻿using UnityEngine;
+using UnityEngine;
 using System.Collections;
 
 public class Commando : DestroyableObject {
 
     // gem originale transform værdier, så vi kan ændre orientering, uden at fucke inspector værdier op
     private Transform _origPos;
+
+	public bool HasTriggerObject;
 
     private bool _facingUp = true, _facingDown = false, _facingLeft = false, _facingRight = false;
 
@@ -90,4 +92,19 @@ public class Commando : DestroyableObject {
             _facingRight = false;
         }
     }
+
+	void OnTriggerEnter(Collider other)
+	{
+		if (other.gameObject.CompareTag("IntelObject"))
+		{
+			other.gameObject.SetActive(false);
+			HasTriggerObject = true;
+		}
+
+		if (other.gameObject.CompareTag("LZObject") && HasTriggerObject)
+		{
+			other.gameObject.SetActive(false);
+			FindObjectOfType<Player>().CmdEndGame();
+		}
+	}
 }
