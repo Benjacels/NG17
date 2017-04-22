@@ -21,6 +21,7 @@ public class BombBehavior : MonoBehaviour {
 		_collider = GetComponent<SphereCollider>();
 		_spriteRenderer = GetComponent<SpriteRenderer>();
 		_collider.enabled = false;
+		_collider.radius *= BombRadius;
 
 		_startSize = transform.localScale;
 		_targetSize = transform.localScale / TargetSize;
@@ -56,8 +57,6 @@ public class BombBehavior : MonoBehaviour {
 	void Explode()
 	{
 		_collider.enabled = true;
-		_collider.radius *= BombRadius;
-
 		_spriteRenderer.enabled = false;
 
 		DestroyObject(gameObject, DestroyDelay);
