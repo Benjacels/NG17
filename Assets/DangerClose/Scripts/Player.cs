@@ -18,6 +18,8 @@ public class Player : CaptainsMessPlayer {
 	public Text NameField;
 	public Text ReadyField;
 
+	public int TargetGoal;
+
 	public GameObject BombPrefab;
 	private GameObject _bomb;
 
@@ -161,6 +163,8 @@ public class Player : CaptainsMessPlayer {
 
 	private void SetupGame()
 	{
+		TargetGoal = GameObject.FindGameObjectsWithTag("Target").Length;
+
 		_buttonEventReceiver = FindObjectOfType<ButtonEventReceiver>();
 
 		_hasStarted = true;

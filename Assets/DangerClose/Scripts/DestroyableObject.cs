@@ -9,7 +9,10 @@ public class DestroyableObject : MonoBehaviour {
 		Destroyed
 	}
 
+	public static int TargetsDestroyed;
+
 	private SpriteRenderer _spriteRenderer;
+	private Player _player;
 
 	public Sprite AliveSprite;
 	public Sprite DestroyedSprite;
@@ -26,6 +29,14 @@ public class DestroyableObject : MonoBehaviour {
 	{
 		_spriteRenderer.sprite = DestroyedSprite;
 		_currentDestroyState = DestroyableObjectState.Destroyed;
+
+		_player = FindObjectOfType<Player>();
+
+		if (gameObject.CompareTag("Target"))
+			TargetsDestroyed++;
+
+		if (TargetsDestroyed >= _player.TargetGoal)
+			Debug.Log("VICTORY");
 	}
 
 	public virtual void ReviveObject()
