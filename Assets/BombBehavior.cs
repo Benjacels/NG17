@@ -1,7 +1,7 @@
 ﻿using UnityEngine;
 using System.Collections;
 
-public class BombBehavior : MonoBehaviour {
+public class BombBehavior : ObjectDestroyer {
 
 	public float TargetSize = 10;
 	public float ScaleSpeed = 20;
@@ -80,11 +80,5 @@ public class BombBehavior : MonoBehaviour {
 		_spriteRenderer.enabled = false;
 
 		DestroyObject(gameObject, DestroyDelay);
-	}
-
-	void OnTriggerEnter(Collider other)
-	{
-		if (other.GetComponent<DestroyableObject>() != null)
-			other.GetComponent<DestroyableObject>().DestroyObject();
 	}
 }
