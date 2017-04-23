@@ -108,7 +108,6 @@ public class Commando : DestroyableObject {
 
 		if (other.gameObject.CompareTag("LZObject") && HasTriggerObject)
 		{
-			other.gameObject.SetActive(false);
 			FindObjectOfType<Player>().CmdEndGame();
 			FindObjectOfType<EndGameScript>().EndGame();
 		}
