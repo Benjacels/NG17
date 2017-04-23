@@ -145,6 +145,9 @@ public class Player : CaptainsMessPlayer {
 	{
 		if (_playerType == PlayerTypeEnum.Commando && isLocalPlayer && _hasStarted)
 		{
+			if (GameObject.FindObjectOfType<Commando>() == null)
+				return;
+
 			if (GameObject.FindObjectOfType<Commando>().CurrentDestroyState == DestroyableObject.DestroyableObjectState.Destroyed)
 			{
 				_rigidbody.Sleep();
@@ -275,25 +278,25 @@ public class Player : CaptainsMessPlayer {
 		float movementSpeed = 2;
 
         _commandoScript.SetWalkingAnimation(false);
-        if (_buttonEventReceiver.CommandoForwardPressed)
+		if (_buttonEventReceiver.CommandoForwardPressed || Input.GetKey(KeyCode.UpArrow))
         {
             _commandoScript.FaceUp();
             _commandoScript.SetWalkingAnimation(true);
 			_rigidbody.velocity = Vector3.up * movementSpeed;
         }
-        else if (_buttonEventReceiver.CommandoBackPressed)
+		else if (_buttonEventReceiver.CommandoBackPressed || Input.GetKey(KeyCode.DownArrow))
         {
             _commandoScript.FaceDown();
             _commandoScript.SetWalkingAnimation(true);
 			_rigidbody.velocity = Vector3.down * movementSpeed;
         }
-        else if (_buttonEventReceiver.CommandoRightPressed)
+		else if (_buttonEventReceiver.CommandoRightPressed || Input.GetKey(KeyCode.RightArrow))
         {
             _commandoScript.FaceRight();
             _commandoScript.SetWalkingAnimation(true);
 			_rigidbody.velocity = Vector3.right * movementSpeed;
         }
-        else if (_buttonEventReceiver.CommandoLeftPressed)
+		else if (_buttonEventReceiver.CommandoLeftPressed || Input.GetKey(KeyCode.LeftArrow))
         {
             _commandoScript.FaceLeft();
             _commandoScript.SetWalkingAnimation(true);

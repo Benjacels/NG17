@@ -76,6 +76,7 @@ MonoBehaviour:
   BombRadius: 3
   DestroyDelay: 0.1
   BombSendDelay: 1
+  _explosion: {fileID: 1000011385153270, guid: 075427ae14eac294d89c598951749922, type: 2}
 --- !u!114 &114000013203797864
 MonoBehaviour:
   m_ObjectHideFlags: 1
