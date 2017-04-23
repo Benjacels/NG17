@@ -189,9 +189,10 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   AliveSprite: {fileID: 21300020, guid: 9f31760da13976048b7cb60bf34ef039, type: 3}
   DestroyedSprite: {fileID: 10901, guid: 0000000000000000f000000000000000, type: 0}
+  CurrentDestroyState: 0
   path: {fileID: 0}
   bullet: {fileID: 1000012502706852, guid: 0f709f980f6fcdb42b62d214acd102d6, type: 2}
-  speedFraction: 0.01
+  speedFraction: 0.005
   rotationSpeed: 360
   bulletSpeed: 100
   shootTime: 2

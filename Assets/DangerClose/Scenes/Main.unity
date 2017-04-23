@@ -275,12 +275,12 @@ Prefab:
     - target: {fileID: 224000012605344254, guid: 1e35b03be8c17428fa930ad5545a900b,
         type: 2}
       propertyPath: m_SizeDelta.x
-      value: 214.74925
+      value: 213.80324
       objectReference: {fileID: 0}
     - target: {fileID: 224000012605344254, guid: 1e35b03be8c17428fa930ad5545a900b,
         type: 2}
       propertyPath: m_SizeDelta.y
-      value: 35.398228
+      value: 35.24229
       objectReference: {fileID: 0}
     - target: {fileID: 224000011789752854, guid: 1e35b03be8c17428fa930ad5545a900b,
         type: 2}
@@ -300,7 +300,7 @@ Prefab:
     - target: {fileID: 224000011789752854, guid: 1e35b03be8c17428fa930ad5545a900b,
         type: 2}
       propertyPath: m_AnchoredPosition.y
-      value: -205.39822
+      value: -205.2423
       objectReference: {fileID: 0}
     - target: {fileID: 114000012951871792, guid: 1e35b03be8c17428fa930ad5545a900b,
         type: 2}
@@ -1331,7 +1331,7 @@ Camera:
   m_Enabled: 1
   serializedVersion: 2
   m_ClearFlags: 1
-  m_BackGroundColor: {r: 0, g: 0.74264705, b: 0.12804262, a: 0}
+  m_BackGroundColor: {r: 0, g: 0.61764705, b: 0.10649089, a: 0}
   m_NormalizedViewPortRect:
     serializedVersion: 2
     x: 0
@@ -1342,7 +1342,7 @@ Camera:
   far clip plane: 1000
   field of view: 60
   orthographic: 1
-  orthographic size: 13.38
+  orthographic size: 10.8
   m_Depth: -1
   m_CullingMask:
     serializedVersion: 2
