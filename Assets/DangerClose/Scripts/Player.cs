@@ -144,7 +144,12 @@ public class Player : CaptainsMessPlayer {
 	public void FixedUpdate()
 	{
 		if (_playerType == PlayerTypeEnum.Commando && isLocalPlayer && _hasStarted)
+		{
+			if (GameObject.FindObjectOfType<Commando>().CurrentDestroyState == DestroyableObject.DestroyableObjectState.Destroyed)
+				return;
+
 			MoveCommando();
+		}
 	}
 
 

@@ -11,15 +11,16 @@ public class Commando : DestroyableObject {
 
     protected override void Start()
 	{
-		base.Start();
-
 		_startPos = transform.position;
         _stepSounds = GetComponents<AudioSource>();
         _anim = GetComponent<Animator>();
+
+		base.Start();
 	}
 
 	public override void ReviveObject()
 	{
+		_anim.enabled = true;
 		base.ReviveObject();
 
 		transform.position = _startPos;
@@ -27,6 +28,7 @@ public class Commando : DestroyableObject {
 
 	public override void DestroyObject()
 	{
+		_anim.enabled = false;
 		base.DestroyObject();
 
 		Invoke("ShowResetGameVisuals", 3);
