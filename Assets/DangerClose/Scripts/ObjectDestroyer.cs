@@ -8,9 +8,9 @@ public class ObjectDestroyer : MonoBehaviour {
 		if (other.GetComponent<DestroyableObject>() != null)
 		{
 			other.GetComponent<DestroyableObject>().DestroyObject();
-
-			if (gameObject.CompareTag("Bullet") || gameObject.CompareTag("Building"))
-				Destroy(gameObject);
 		}
+
+		if (gameObject.CompareTag("Bullet") && other.gameObject.CompareTag("Building"))
+			Destroy(gameObject);
 	}
 }
