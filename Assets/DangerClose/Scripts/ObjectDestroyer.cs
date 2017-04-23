@@ -7,7 +7,8 @@ public class ObjectDestroyer : MonoBehaviour {
 	{
 		if (other.GetComponent<DestroyableObject>() != null)
 		{
-			other.GetComponent<DestroyableObject>().DestroyObject();
+			if (Vector3.Distance(transform.position, other.transform.position) < 0.7f)
+				other.GetComponent<DestroyableObject>().DestroyObject();
 		}
 
 		if (gameObject.CompareTag("Bullet") && other.gameObject.CompareTag("Building"))

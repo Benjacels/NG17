@@ -84,12 +84,12 @@ public class Player : CaptainsMessPlayer {
 	{
 		if (readyState)
 		{
-			ReadyField.text = "READY!";
+			ReadyField.text = deviceName + " : " + "READY!";
 			ReadyField.color = Color.green;
 		}
 		else
 		{
-			ReadyField.text = "not ready";
+			ReadyField.text = deviceName + " : " + "not ready";
 			ReadyField.color = Color.red;
 		}
 	}
@@ -101,8 +101,8 @@ public class Player : CaptainsMessPlayer {
 		NameField.text = deviceName;
 		ReadyField.gameObject.SetActive(true);
 
-		if(_playerType == PlayerTypeEnum.Headquarters)
-			ReadyField.transform.position -= Vector3.up * 2;
+		if (_playerType == PlayerTypeEnum.Headquarters)
+			ReadyField.transform.position -= Vector3.up * 1.5f;
 
 		OnClientReady(IsReady());
 	}
