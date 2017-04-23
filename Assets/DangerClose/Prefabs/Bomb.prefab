@@ -70,7 +70,7 @@ AudioSource:
   m_Enabled: 1
   serializedVersion: 4
   OutputAudioMixerGroup: {fileID: 0}
-  m_audioClip: {fileID: 8300000, guid: 6718b9173f3383d41a7acaf73f9cee26, type: 3}
+  m_audioClip: {fileID: 8300000, guid: a618572a1560a4669be1e90353be3ede, type: 3}
   m_PlayOnAwake: 0
   m_Volume: 1
   m_Pitch: 1
@@ -149,7 +149,7 @@ MonoBehaviour:
   TargetSize: 10
   ScaleSpeed: 5
   BombRadius: 3
-  DestroyDelay: 0.7
+  DestroyDelay: 0.4
   BombSendDelay: 1
   _soundDelay: 0.6
   _explosion: {fileID: 1000014111020584, guid: b9f9f6fd9c1ec714d9d5513bdd82a776, type: 2}
