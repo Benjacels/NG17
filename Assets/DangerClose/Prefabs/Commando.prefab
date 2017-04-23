@@ -42,7 +42,7 @@ GameObject:
   - 82: {fileID: 82000011229300172}
   - 82: {fileID: 82000013414978540}
   - 135: {fileID: 135000010163944042}
-  m_Layer: 0
+  m_Layer: 11
   m_Name: Commando
   m_TagString: Player
   m_Icon: {fileID: 0}
@@ -58,7 +58,7 @@ GameObject:
   m_Component:
   - 4: {fileID: 4000013974677554}
   - 82: {fileID: 82000014256654360}
-  m_Layer: 0
+  m_Layer: 11
   m_Name: SplatSound
   m_TagString: Untagged
   m_Icon: {fileID: 0}
