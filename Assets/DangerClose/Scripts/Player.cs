@@ -101,6 +101,9 @@ public class Player : CaptainsMessPlayer {
 		NameField.text = deviceName;
 		ReadyField.gameObject.SetActive(true);
 
+		if(_playerType == PlayerTypeEnum.Headquarters)
+			ReadyField.transform.position -= Vector3.up * 2;
+
 		OnClientReady(IsReady());
 	}
 
@@ -137,8 +140,7 @@ public class Player : CaptainsMessPlayer {
 				Camera.main.transform.position = new Vector3(_commando.transform.position.x, _commando.transform.position.y, Camera.main.transform.position.z); ;
 		}
 
-		if (_hasStarted)
-			NameField.gameObject.SetActive(false);
+		NameField.gameObject.SetActive(false);
 	}
 
 	public void FixedUpdate()
