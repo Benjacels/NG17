@@ -55,8 +55,8 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1000011281773128}
   m_LocalRotation: {x: 0, y: 0, z: 0.25004205, w: 0.968235}
-  m_LocalPosition: {x: -2.94, y: -2.59, z: 0}
-  m_LocalScale: {x: 0.5, y: 0.5, z: 0.5}
+  m_LocalPosition: {x: -1.707, y: -2.006, z: -0.009856975}
+  m_LocalScale: {x: 0.065917075, y: 0.065917104, z: 0.065917104}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 28.96}
   m_Children:
   - {fileID: 4000013227950106}
@@ -187,8 +187,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 304469ef03e7eb541b5187f9b28572ec, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  AliveSprite: {fileID: 21300020, guid: 9f31760da13976048b7cb60bf34ef039, type: 3}
-  DestroyedSprite: {fileID: 10901, guid: 0000000000000000f000000000000000, type: 0}
+  AliveSprite: {fileID: 21300000, guid: 23fa24d0182aa4501a6d932fcca6571a, type: 3}
+  DestroyedSprite: {fileID: 21300000, guid: 85a2a1b712c3f47e8b31f5183fb6bccc, type: 3}
+  CurrentDestroyState: 0
   path: {fileID: 0}
   bullet: {fileID: 1000012502706852, guid: 0f709f980f6fcdb42b62d214acd102d6, type: 2}
   speedFraction: 0.01
@@ -269,7 +270,7 @@ SpriteRenderer:
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: 0
   m_SortingOrder: 0
-  m_Sprite: {fileID: 21300020, guid: 9f31760da13976048b7cb60bf34ef039, type: 3}
+  m_Sprite: {fileID: 21300000, guid: 23fa24d0182aa4501a6d932fcca6571a, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
