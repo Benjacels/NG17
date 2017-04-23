@@ -21,7 +21,7 @@ GameObject:
   - 224: {fileID: 224000013344157762}
   - 222: {fileID: 222000014133100402}
   - 114: {fileID: 114000010140477594}
-  m_Layer: 5
+  m_Layer: 0
   m_Name: NameField
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -55,7 +55,7 @@ GameObject:
   - 224: {fileID: 224000012754100458}
   - 222: {fileID: 222000011503745934}
   - 114: {fileID: 114000011717894292}
-  m_Layer: 5
+  m_Layer: 0
   m_Name: ReadyField
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -131,6 +131,7 @@ MonoBehaviour:
   PlayerImage: {fileID: 0}
   NameField: {fileID: 114000010140477594}
   ReadyField: {fileID: 114000011717894292}
+  TargetGoal: 0
   BombPrefab: {fileID: 1000013916652258, guid: 2b3516097029d45b69339fd52c8194df, type: 2}
   CommandoPrefab: {fileID: 1000011391322180, guid: c918ec67469a84bc5a346aabb85d7995,
     type: 2}
