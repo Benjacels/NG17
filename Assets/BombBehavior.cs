@@ -8,11 +8,13 @@ public class BombBehavior : ObjectDestroyer {
 	public float BombRadius = 3;
 	public float DestroyDelay = 0.1f;
 	public float BombSendDelay = 1;
+    public float _soundDelay = 0.5f;
 
 	private SphereCollider _collider;
 	private SpriteRenderer _spriteRenderer;
 	private bool _dropBomb = false;
 	private float _startTime;
+    private AudioSource _explosionSound;     
 
 	private Vector3 _startSize;
 	private Vector3 _targetSize;
@@ -29,6 +31,7 @@ public class BombBehavior : ObjectDestroyer {
 
 		_collider = GetComponent<SphereCollider>();
 		_spriteRenderer = GetComponent<SpriteRenderer>();
+        _explosionSound = GetComponent<AudioSource>();
 
 		_spriteRenderer.enabled = false;
 		_collider.enabled = false;
@@ -37,6 +40,8 @@ public class BombBehavior : ObjectDestroyer {
 
 		_startSize = transform.localScale;
 		_targetSize = transform.localScale / TargetSize;
+
+        _explosionSound.PlayDelayed(_soundDelay);
 
 		StartCoroutine("DelayBomb");
 	}
@@ -64,11 +69,13 @@ public class BombBehavior : ObjectDestroyer {
 
 			return;
 		}
+        
 
 		float dist = Vector3.Distance(_startSize, _targetSize);
 		float progressTime = (Time.time - _startTime) * ScaleSpeed;
 
 		float progression = progressTime / dist;
+
 
 		transform.localScale = Vector3.Lerp(_startSize, _targetSize, progression);
 

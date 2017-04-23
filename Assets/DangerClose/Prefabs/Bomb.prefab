@@ -39,8 +39,8 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1000013916652258}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -1.63, y: -2.1947937, z: 0}
-  m_LocalScale: {x: 16.583412, y: 16.583412, z: 16.583412}
+  m_LocalPosition: {x: -2.96, y: 0.63, z: 0}
+  m_LocalScale: {x: -1.4811563, y: -1.4811574, z: -1.4811574}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_Children: []
   m_Father: {fileID: 0}
@@ -76,6 +76,7 @@ MonoBehaviour:
   BombRadius: 3
   DestroyDelay: 0.1
   BombSendDelay: 1
+  _explosion: {fileID: 1000011385153270, guid: 075427ae14eac294d89c598951749922, type: 2}
 --- !u!114 &114000013203797864
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -138,7 +139,7 @@ SphereCollider:
   m_IsTrigger: 1
   m_Enabled: 0
   serializedVersion: 2
-  m_Radius: 0.1
+  m_Radius: 1.26
   m_Center: {x: 0, y: 0, z: 0}
 --- !u!212 &212000014210917204
 SpriteRenderer:
@@ -169,7 +170,7 @@ SpriteRenderer:
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: 0
   m_SortingOrder: 0
-  m_Sprite: {fileID: 10913, guid: 0000000000000000f000000000000000, type: 0}
+  m_Sprite: {fileID: 21300000, guid: 28c071da09dafc34e9042800bb01d6be, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
