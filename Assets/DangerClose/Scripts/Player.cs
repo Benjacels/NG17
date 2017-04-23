@@ -146,7 +146,10 @@ public class Player : CaptainsMessPlayer {
 		if (_playerType == PlayerTypeEnum.Commando && isLocalPlayer && _hasStarted)
 		{
 			if (GameObject.FindObjectOfType<Commando>().CurrentDestroyState == DestroyableObject.DestroyableObjectState.Destroyed)
+			{
+				_rigidbody.Sleep();
 				return;
+			}
 
 			MoveCommando();
 		}
@@ -269,30 +272,32 @@ public class Player : CaptainsMessPlayer {
             return;
         }
 
+		float movementSpeed = 10;
+
         _commandoScript.SetWalkingAnimation(false);
         if (_buttonEventReceiver.CommandoForwardPressed)
         {
             _commandoScript.FaceUp();
             _commandoScript.SetWalkingAnimation(true);
-            _rigidbody.velocity = Vector3.up * 7;
+			_rigidbody.velocity = Vector3.up * movementSpeed;
         }
         else if (_buttonEventReceiver.CommandoBackPressed)
         {
             _commandoScript.FaceDown();
             _commandoScript.SetWalkingAnimation(true);
-            _rigidbody.velocity = Vector3.down * 7;
+			_rigidbody.velocity = Vector3.down * movementSpeed;
         }
         else if (_buttonEventReceiver.CommandoRightPressed)
         {
             _commandoScript.FaceRight();
             _commandoScript.SetWalkingAnimation(true);
-            _rigidbody.velocity = Vector3.right * 7;
+			_rigidbody.velocity = Vector3.right * movementSpeed;
         }
         else if (_buttonEventReceiver.CommandoLeftPressed)
         {
             _commandoScript.FaceLeft();
             _commandoScript.SetWalkingAnimation(true);
-            _rigidbody.velocity = Vector3.left * 7;
+			_rigidbody.velocity = Vector3.left * movementSpeed;
         }
         else
             _rigidbody.Sleep();

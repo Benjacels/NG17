@@ -20,15 +20,31 @@ GameObject:
   m_Component:
   - 4: {fileID: 4000011414027834}
   - 212: {fileID: 212000011071040008}
-  - 135: {fileID: 135000013561648012}
   - 54: {fileID: 54000011111403172}
   - 114: {fileID: 114000013758355090}
   - 95: {fileID: 95000012033315308}
   - 82: {fileID: 82000011229300172}
   - 82: {fileID: 82000013414978540}
+  - 135: {fileID: 135000010163944042}
   m_Layer: 0
   m_Name: Commando
   m_TagString: Player
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!1 &1000012427100422
+GameObject:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  serializedVersion: 4
+  m_Component:
+  - 4: {fileID: 4000013974677554}
+  - 82: {fileID: 82000014256654360}
+  m_Layer: 0
+  m_Name: SplatSound
+  m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -40,11 +56,25 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1000011391322180}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -1.9301383, y: -1.1170485, z: -0.5}
+  m_LocalPosition: {x: -2.6275165, y: -1.871904, z: -0.009856975}
   m_LocalScale: {x: 0.5, y: 0.5, z: 0.05}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
-  m_Children: []
+  m_Children:
+  - {fileID: 4000013974677554}
   m_Father: {fileID: 0}
+  m_RootOrder: 0
+--- !u!4 &4000013974677554
+Transform:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1000012427100422}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: 0.045000076, y: 0.004999876, z: 0}
+  m_LocalScale: {x: 2, y: 2, z: 20}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+  m_Children: []
+  m_Father: {fileID: 4000011414027834}
   m_RootOrder: 0
 --- !u!54 &54000011111403172
 Rigidbody:
@@ -209,6 +239,80 @@ AudioSource:
     m_PreInfinity: 2
     m_PostInfinity: 2
     m_RotationOrder: 0
+--- !u!82 &82000014256654360
+AudioSource:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1000012427100422}
+  m_Enabled: 1
+  serializedVersion: 4
+  OutputAudioMixerGroup: {fileID: 0}
+  m_audioClip: {fileID: 8300000, guid: e0fcd9030cdb544a99d5bcfbf5829e72, type: 3}
+  m_PlayOnAwake: 0
+  m_Volume: 1
+  m_Pitch: 1
+  Loop: 0
+  Mute: 0
+  Spatialize: 0
+  Priority: 128
+  DopplerLevel: 1
+  MinDistance: 1
+  MaxDistance: 500
+  Pan2D: 0
+  rolloffMode: 0
+  BypassEffects: 0
+  BypassListenerEffects: 0
+  BypassReverbZones: 0
+  rolloffCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - time: 0
+      value: 1
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+    - time: 1
+      value: 0
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
+  panLevelCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - time: 0
+      value: 0
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 0
+  spreadCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - time: 0
+      value: 0
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 0
+  reverbZoneMixCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - time: 0
+      value: 1
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 0
 --- !u!95 &95000012033315308
 Animator:
   serializedVersion: 3
@@ -239,8 +343,9 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   AliveSprite: {fileID: 21300008, guid: 1ef49dbb34f486a44add8e80a6081aa2, type: 3}
   DestroyedSprite: {fileID: 21300000, guid: 0c28a2ca19d3b42f48e93e36f83810af, type: 3}
+  CurrentDestroyState: 0
   HasTriggerObject: 0
---- !u!135 &135000013561648012
+--- !u!135 &135000010163944042
 SphereCollider:
   m_ObjectHideFlags: 1
   m_PrefabParentObject: {fileID: 0}
@@ -250,8 +355,8 @@ SphereCollider:
   m_IsTrigger: 0
   m_Enabled: 1
   serializedVersion: 2
-  m_Radius: 0.1
-  m_Center: {x: 0, y: 0, z: 0}
+  m_Radius: 0.66
+  m_Center: {x: 0.12, y: 0.37, z: 0}
 --- !u!212 &212000011071040008
 SpriteRenderer:
   m_ObjectHideFlags: 1
