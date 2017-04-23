@@ -17,6 +17,8 @@ public class BombBehavior : ObjectDestroyer {
 	private Vector3 _startSize;
 	private Vector3 _targetSize;
 
+    public GameObject _explosion;
+
 	void Awake()
 	{
 		
@@ -76,6 +78,7 @@ public class BombBehavior : ObjectDestroyer {
 
 	void Explode()
 	{
+        Instantiate(_explosion, transform.position, Quaternion.identity);
 		_collider.enabled = true;
 		_spriteRenderer.enabled = false;
 
