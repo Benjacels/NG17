@@ -58,7 +58,7 @@ public class Player : CaptainsMessPlayer {
 			_playerType = PlayerTypeEnum.Headquarters;
 		else
 		{
-			Camera.main.orthographicSize /= 3;
+			Camera.main.orthographicSize /= 5;
 			_playerType = PlayerTypeEnum.Commando;
 		}
 	}
@@ -272,7 +272,7 @@ public class Player : CaptainsMessPlayer {
             return;
         }
 
-		float movementSpeed = 10;
+		float movementSpeed = 2;
 
         _commandoScript.SetWalkingAnimation(false);
         if (_buttonEventReceiver.CommandoForwardPressed)
