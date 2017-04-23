@@ -35,8 +35,9 @@ public class Player : CaptainsMessPlayer {
 
 	private GameObject _buttonEventParent;
 
-	private int _startBombAmmo = 5;
+	private int _startBombAmmo = 50;
 
+	[SyncVar]
 	private int _bombAmmo;
 	private Text _ammoNum;
 
@@ -143,7 +144,15 @@ public class Player : CaptainsMessPlayer {
 	public void FixedUpdate()
 	{
 		if (_playerType == PlayerTypeEnum.Commando && isLocalPlayer && _hasStarted)
+		{
+			if (GameObject.FindObjectOfType<Commando>().CurrentDestroyState == DestroyableObject.DestroyableObjectState.Destroyed)
+			{
+				_rigidbody.Sleep();
+				return;
+			}
+
 			MoveCommando();
+		}
 	}
 
 
@@ -169,13 +178,27 @@ public class Player : CaptainsMessPlayer {
 		_ammoNum.text = _bombAmmo.ToString();
 	}
 
-	[Command]
-	public void CmdResetAmmo(int startAmmo)
+	void SetBombAmmo(int ammo)
 	{
-		_bombAmmo = startAmmo;
+		_bombAmmo = ammo;
+	}
 
-		if(_ammoNum != null)
-			_ammoNum.text = _bombAmmo.ToString();
+	[Command]
+	public void CmdResetAmmo()
+	{
+		if (_playerType == PlayerTypeEnum.Commando)
+			return;
+
+		_bombAmmoParent = GameObject.FindWithTag("AmmoParent");
+		foreach (Transform tran in _bombAmmoParent.transform)
+		{
+			if (tran.GetComponent<Text>() != null)
+			{
+				SetBombAmmo(50);
+				_ammoNum = tran.GetComponent<Text>();
+				_ammoNum.text = _bombAmmo.ToString();
+			}
+		}
 	}
 
 
@@ -249,30 +272,32 @@ public class Player : CaptainsMessPlayer {
             return;
         }
 
+		float movementSpeed = 10;
+
         _commandoScript.SetWalkingAnimation(false);
         if (_buttonEventReceiver.CommandoForwardPressed)
         {
             _commandoScript.FaceUp();
             _commandoScript.SetWalkingAnimation(true);
-            _rigidbody.velocity = Vector3.up * 7;
+			_rigidbody.velocity = Vector3.up * movementSpeed;
         }
         else if (_buttonEventReceiver.CommandoBackPressed)
         {
             _commandoScript.FaceDown();
             _commandoScript.SetWalkingAnimation(true);
-            _rigidbody.velocity = Vector3.down * 7;
+			_rigidbody.velocity = Vector3.down * movementSpeed;
         }
         else if (_buttonEventReceiver.CommandoRightPressed)
         {
             _commandoScript.FaceRight();
             _commandoScript.SetWalkingAnimation(true);
-            _rigidbody.velocity = Vector3.right * 7;
+			_rigidbody.velocity = Vector3.right * movementSpeed;
         }
         else if (_buttonEventReceiver.CommandoLeftPressed)
         {
             _commandoScript.FaceLeft();
             _commandoScript.SetWalkingAnimation(true);
-            _rigidbody.velocity = Vector3.left * 7;
+			_rigidbody.velocity = Vector3.left * movementSpeed;
         }
         else
             _rigidbody.Sleep();

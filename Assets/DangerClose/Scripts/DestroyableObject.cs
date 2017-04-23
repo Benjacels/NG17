@@ -16,7 +16,7 @@ public class DestroyableObject : MonoBehaviour {
 	public Sprite AliveSprite;
 	public Sprite DestroyedSprite;
 
-	private DestroyableObjectState _currentDestroyState;
+	public DestroyableObjectState CurrentDestroyState;
 
 	protected virtual void Start()
 	{
@@ -28,7 +28,7 @@ public class DestroyableObject : MonoBehaviour {
 	public virtual void DestroyObject()
 	{
 		GetComponent<SpriteRenderer>().sprite = DestroyedSprite;
-		_currentDestroyState = DestroyableObjectState.Destroyed;
+		CurrentDestroyState = DestroyableObjectState.Destroyed;
 
 		_player = FindObjectOfType<Player>();
 	}
@@ -36,7 +36,7 @@ public class DestroyableObject : MonoBehaviour {
 	public virtual void ReviveObject()
 	{
 		GetComponent<SpriteRenderer>().sprite = AliveSprite;
-		_currentDestroyState = DestroyableObjectState.Alive;
+		CurrentDestroyState = DestroyableObjectState.Alive;
 
 		transform.position = _startPos;
 	}

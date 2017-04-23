@@ -7,19 +7,22 @@ public class Commando : DestroyableObject {
 
     private bool _facingUp = true, _facingDown = false, _facingLeft = false, _facingRight = false;
     private AudioSource[] _stepSounds;
+	private AudioSource _splatSound;
     private Animator _anim;
 
     protected override void Start()
 	{
-		base.Start();
-
 		_startPos = transform.position;
         _stepSounds = GetComponents<AudioSource>();
+		_splatSound = transform.FindChild("SplatSound").GetComponent<AudioSource>();
         _anim = GetComponent<Animator>();
+
+		base.Start();
 	}
 
 	public override void ReviveObject()
 	{
+		_anim.enabled = true;
 		base.ReviveObject();
 
 		transform.position = _startPos;
@@ -27,7 +30,13 @@ public class Commando : DestroyableObject {
 
 	public override void DestroyObject()
 	{
+		if (CurrentDestroyState == DestroyableObjectState.Destroyed)
+			return;
+
+		_anim.enabled = false;
 		base.DestroyObject();
+
+		_splatSound.Play();
 
 		Invoke("ShowResetGameVisuals", 3);
 	}

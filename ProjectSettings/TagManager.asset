@@ -13,6 +13,8 @@ TagManager:
   - LZObject
   - EndGameParent
   - AmmoParent
+  - Bullet
+  - Building
   layers:
   - Default
   - TransparentFX
