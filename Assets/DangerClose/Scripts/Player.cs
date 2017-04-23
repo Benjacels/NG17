@@ -35,7 +35,7 @@ public class Player : CaptainsMessPlayer {
 
 	private GameObject _buttonEventParent;
 
-	private int _startBombAmmo = 5;
+	private int _startBombAmmo = 50;
 
 	[SyncVar]
 	private int _bombAmmo;
@@ -186,7 +186,7 @@ public class Player : CaptainsMessPlayer {
 		{
 			if (tran.GetComponent<Text>() != null)
 			{
-				SetBombAmmo(5);
+				SetBombAmmo(50);
 				_ammoNum = tran.GetComponent<Text>();
 				_ammoNum.text = _bombAmmo.ToString();
 			}
