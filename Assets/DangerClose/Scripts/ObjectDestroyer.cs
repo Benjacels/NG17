@@ -7,7 +7,7 @@ public class ObjectDestroyer : MonoBehaviour {
 	{
 		if (other.GetComponent<DestroyableObject>() != null)
 		{
-			if (Vector3.Distance(transform.position, other.transform.position) < 0.7f)
+			if (Vector3.Distance(transform.position, other.transform.position) < 1f)
 				other.GetComponent<DestroyableObject>().DestroyObject();
 		}
 
