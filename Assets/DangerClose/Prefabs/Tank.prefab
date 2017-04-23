@@ -37,10 +37,10 @@ GameObject:
   - 4: {fileID: 4000011618301574}
   - 212: {fileID: 212000013582414676}
   - 114: {fileID: 114000010492888788}
-  - 65: {fileID: 65000013200129214}
   - 135: {fileID: 135000012542192074}
   - 54: {fileID: 54000014245766866}
   - 82: {fileID: 82000013830394286}
+  - 65: {fileID: 65000011370387834}
   m_Layer: 9
   m_Name: Tank
   m_TagString: Untagged
@@ -54,10 +54,10 @@ Transform:
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1000011281773128}
-  m_LocalRotation: {x: 0, y: 0, z: 0.25004205, w: 0.968235}
-  m_LocalPosition: {x: -1.707, y: -2.006, z: -0.009856975}
-  m_LocalScale: {x: 0.065917075, y: 0.065917104, z: 0.065917104}
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 28.96}
+  m_LocalRotation: {x: 0, y: 0, z: 0.7071068, w: 0.7071068}
+  m_LocalPosition: {x: 4.2976274, y: -6.1785145, z: 0}
+  m_LocalScale: {x: 0.08592738, y: 0.085927285, z: 0.085927285}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 90}
   m_Children:
   - {fileID: 4000013227950106}
   m_Father: {fileID: 0}
@@ -90,7 +90,7 @@ Rigidbody:
   m_Interpolate: 0
   m_Constraints: 112
   m_CollisionDetection: 0
---- !u!65 &65000013200129214
+--- !u!65 &65000011370387834
 BoxCollider:
   m_ObjectHideFlags: 1
   m_PrefabParentObject: {fileID: 0}
@@ -100,8 +100,8 @@ BoxCollider:
   m_IsTrigger: 0
   m_Enabled: 1
   serializedVersion: 2
-  m_Size: {x: 0.34, y: 0.59, z: 0.2}
-  m_Center: {x: 0, y: 0, z: 0}
+  m_Size: {x: 4.077033, y: 7.7837753, z: 0.19999999}
+  m_Center: {x: 0.16280371, y: -0.9983097, z: 0}
 --- !u!82 &82000013830394286
 AudioSource:
   m_ObjectHideFlags: 1
@@ -187,12 +187,12 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 304469ef03e7eb541b5187f9b28572ec, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  AliveSprite: {fileID: 21300000, guid: 23fa24d0182aa4501a6d932fcca6571a, type: 3}
-  DestroyedSprite: {fileID: 21300000, guid: 85a2a1b712c3f47e8b31f5183fb6bccc, type: 3}
+  AliveSprite: {fileID: 21300020, guid: 9f31760da13976048b7cb60bf34ef039, type: 3}
+  DestroyedSprite: {fileID: 10901, guid: 0000000000000000f000000000000000, type: 0}
   CurrentDestroyState: 0
   path: {fileID: 0}
   bullet: {fileID: 1000012502706852, guid: 0f709f980f6fcdb42b62d214acd102d6, type: 2}
-  speedFraction: 0.01
+  speedFraction: 0.005
   rotationSpeed: 360
   bulletSpeed: 100
   shootTime: 2
@@ -206,7 +206,7 @@ SphereCollider:
   m_IsTrigger: 1
   m_Enabled: 1
   serializedVersion: 2
-  m_Radius: 2
+  m_Radius: 27.68
   m_Center: {x: 0, y: 0, z: 0}
 --- !u!212 &212000011774705638
 SpriteRenderer:
@@ -270,7 +270,7 @@ SpriteRenderer:
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: 0
   m_SortingOrder: 0
-  m_Sprite: {fileID: 21300000, guid: 23fa24d0182aa4501a6d932fcca6571a, type: 3}
+  m_Sprite: {fileID: 21300000, guid: e7cc72c5db45fb749b523bc2153fe401, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
