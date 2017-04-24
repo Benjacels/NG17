@@ -149,9 +149,9 @@ MonoBehaviour:
   TargetSize: 10
   ScaleSpeed: 5
   BombRadius: 3
-  DestroyDelay: 0.4
-  BombSendDelay: 1
-  _soundDelay: 0.6
+  DestroyDelay: 1
+  BombSendDelay: 0
+  _soundDelay: 0
   _explosion: {fileID: 1000014111020584, guid: b9f9f6fd9c1ec714d9d5513bdd82a776, type: 2}
 --- !u!114 &114000013203797864
 MonoBehaviour:
